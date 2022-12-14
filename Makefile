@@ -18,4 +18,8 @@ vim-hybrid: all
 	# config files
 	cp  ./init.vim ~/.config/nvim/ 
 
-
+pure-nvim: all
+	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
+	# config files
+	cp     ./init.lua ~/.config/nvim/ 
+	cp -rf ./lua      ~/.config/nvim/ 
