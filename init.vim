@@ -72,6 +72,19 @@ endif
 
 call jetpack#begin()
   " bootstrap
-  Jetpack 'tani/vim-jetpack', { 'opt': 1 }
-call jetpack#end()
+  Jetpack 'tani/vim-jetpack',        { 'opt': 1 }
+  
+  "" Enhanced editor plugin
+  " autoclose
+  Jetpack 'Townk/vim-autoclose',             { 'opt': 0 }
+  Jetpack 'nathanaelkane/vim-indent-guides', { 'opt': 0 }
 
+  " cheatsheet
+  Jetpack 'reireias/vim-cheatsheet', { 'opt': 1 }
+
+  " git-related
+  Jetpack 'tpope/vim-fugitive',      { 'opt': 1 }
+  Jetpack 'airblade/vim-gitgutter',  { 'opt': 1 }
+
+
+call jetpack#end()

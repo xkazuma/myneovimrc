@@ -1,4 +1,4 @@
-all: clean jetpack
+all: 
 # setup nvim
 ifeq (,$(wildcard ~/.config/nvim))
 	mkdir ~/.config/nvim/plugins -p
@@ -9,11 +9,13 @@ endif
 ifeq (,$(wildcard ~/.local/share))
 	mkdir ~/.local/share 
 endif
-	# config files
-	cp  ./init.vim       ~/.config/nvim/ 
 
 clean:
-	rm -rf ~/.config/nvim ~/cache/dein ~/.local/share/dein
+	rm -rf ~/.config/nvim ~/cache/dein ~/.local/share/dein ~/.local/share/nvim
 
-jetpack:
+vim-hybrid: all
 	curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
+	# config files
+	cp  ./init.vim ~/.config/nvim/ 
+
+
