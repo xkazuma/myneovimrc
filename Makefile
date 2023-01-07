@@ -18,8 +18,14 @@ vim-hybrid: all
 	# config files
 	cp  ./init.vim ~/.config/nvim/ 
 
-pure-nvim: all
+pure-lua: all
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 	# config files
 	cp     ./init.lua ~/.config/nvim/ 
 	cp -rf ./lua      ~/.config/nvim/ 
+	@make magma-nvim
+
+magma-nvim:
+	@echo "sudo apt install python3 python3-pip python3-venv kitty cairosvg pnglatex plotly kaleido"
+	@echo "python3 -m venv venv & source venv/bin/activate & pip install neovim jupyter jupyter-client"
+	@echo ":MagmaInit python3"

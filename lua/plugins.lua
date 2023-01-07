@@ -69,8 +69,19 @@ packer.init({
 return packer.startup(function(use)
 
   use "wbthomason/packer.nvim"
-  use "nvim-lua/plenary.nvim"
 
+  -- git-related
+  use {
+    "TimUntersberger/neogit",
+    requires = "nvim-lua/plenary.nvim",
+    config = function() require('config.neogit-setup') end
+  }
+  use {
+    "lewis6991/gitsigns.nvim",
+    config = function() require('config.gitsigns-setup') end
+  }
+
+  
   -- colorscheme
   use "nanotech/jellybeans.vim"
   
@@ -79,18 +90,23 @@ return packer.startup(function(use)
   use {
     "nvim-lualine/lualine.nvim",
     requires = {
-      "nvim-tree/nvim-web-devicons",
-      opt = true
-    }
+      "nvim-tree/nvim-web-devicons", opt = true
+    },
+    config = function() require('config.lualine-setup') end
   }
 
   -- enhancing editor
   use {
     "kyazdani42/nvim-tree.lua",
     requires = {
-      "nvim-tree/nvim-web-devicons",
-      opt = true
-    }
+      "nvim-tree/nvim-web-devicons", opt = true
+    },
+    config = function() require('config.nvim-tree-setup') end
+  }
+  use "rcarriga/nvim-notify"
+  use {
+    "edluffy/hologram.nvim",
+    config = function() require('config.hologram-setup') end
   }
 
   -- complition plugin
@@ -99,6 +115,13 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
   use "Townk/vim-autoclose"
+
+  -- python
+  use {
+    "dccsillag/magma-nvim",
+    run = ':UpdateRemotePlugins',
+    config = function() require('config.magma-setup') end
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

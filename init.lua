@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------------
 require("base")
 
--- require("autocmds")
+require("autocmds")
 
 require("options")
 
@@ -17,5 +17,3 @@ require("colorscheme")
 -- plugin setting
 --------------------------------------------------------------------------------
 require("plugins")
-require("lualine-setup")
-require("nvim-tree-setup")
