@@ -66,7 +66,8 @@ packer.init({
 ----   },
 ---- }
 
-return packer.startup(function(use)
+return packer.startup(
+function(use) 
 
   use "wbthomason/packer.nvim"
 
