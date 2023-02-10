@@ -18,6 +18,9 @@ vim-hybrid: all
 	# config files
 	cp  ./init.vim ~/.config/nvim/ 
 
+vscode:
+	cp init-vscode.vim ~/.config/nvim
+
 pure-lua: all
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 	# config files
