@@ -12,6 +12,7 @@ endif
 
 clean:
 	rm -rf ~/.config/nvim ~/cache/dein ~/.local/share/dein ~/.local/share/nvim
+	mkdir ~/.config/nvim
 
 vim-hybrid: all
 	curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
@@ -21,10 +22,10 @@ vim-hybrid: all
 vscode:
 	cp init-vscode.vim ~/.config/nvim
 
-pure-lua: all
+pure-lua: clean
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 	# config files
-	cp     ./init.lua ~/.config/nvim/ 
+	cp -rf ./init.lua ~/.config/nvim/ 
 	cp -rf ./lua      ~/.config/nvim/ 
 	@make magma-nvim
 
