@@ -7,20 +7,20 @@ ifeq (,$(wildcard ~/.cache/dein))
 	mkdir ~/.cache/dein -p
 endif
 ifeq (,$(wildcard ~/.local/share))
-	mkdir ~/.local/share 
+	mkdir ~/.local/share -p
 endif
 
 clean:
 	rm -rf ~/.config/nvim ~/cache/dein ~/.local/share/dein ~/.local/share/nvim
-	mkdir ~/.config/nvim
+	mkdir -p ~/.config/nvim
 
 vim-hybrid: all
 	curl -fLo ~/.config/nvim/autoload/jetpack.vim --create-dirs https://raw.githubusercontent.com/tani/vim-jetpack/master/plugin/jetpack.vim
 	# config files
-	cp  ./init.vim ~/.config/nvim/ 
+	cp  -f ./init.vim ~/.config/nvim/ 
 
 vscode:
-	cp init-vscode.vim ~/.config/nvim
+	cp -f init-vscode.vim ~/.config/nvim
 
 pure-lua: clean
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
