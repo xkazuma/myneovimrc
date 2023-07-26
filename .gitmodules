@@ -1,0 +1,9 @@
+[submodule "myneovim"]
+	path = myneovim
+	url = git@github.com:xkazuma/myneovim
+[submodule "docker/myneovim"]
+	path = docker/myneovim
+	url = git@github.com:xkazuma/myneovim
+[submodule "docker/compose/nvim-texlive-env"]
+	path = docker/compose/nvim-texlive-env
+	url = git@github.com:xkazuma/nvim-texlive-env
