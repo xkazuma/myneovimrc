@@ -124,6 +124,13 @@ function(use)
     config = function() require('config.magma-setup') end
   }
 
+  -- LaTeX
+  use {
+    "lervag/vimtex",
+    config = function() require('config.vimtex-setup') end
+  }
+
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
