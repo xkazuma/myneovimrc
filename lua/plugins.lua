@@ -111,6 +111,37 @@ function(use)
   }
 
   -- complition plugin
+  use {'vim-denops/denops.vim', lazy = false,
+        config = function() require('config.denops-setup') end}
+  use {'windwp/nvim-autopairs',event = 'InsertEnter'}
+  use {'j-hui/fidget.nvim', event = 'LspAttach'}
+  use {'nvim-telescope/telescope.nvim', cmd = 'Telescope',
+        requires = {'nvim-lua/plenary.nvim'}}
+  use {'echasnovski/mini.surround'}
+
+  use {"williamboman/mason.nvim",
+    config = function() require('config.mason-setup') end,
+    requires = {
+      'williamboman/mason-lspconfig.nvim',
+      'neovim/nvim-lspconfig',
+      'hrsh7th/cmp-nvim-lsp',
+    }
+  }
+  use {'hrsh7th/cmp-nvim-lsp'}
+  use {'hrsh7th/cmp-buffer'}
+  use {'hrsh7th/cmp-path'}
+  use {'hrsh7th/cmp-cmdline'}
+  use {'hrsh7th/cmp-calc'}
+  use {'petertriho/cmp-git'}
+  use {'onsails/lspkind.nvim',
+    requires = {'mortepau/codicons.nvim'}
+  }
+  use {'hrsh7th/nvim-cmp',
+     config = function() require('config.cmp-setup') end,
+     requires = {'hrsh7th/cmp-nvim-lsp'}
+  }
+  use {'L3MON4D3/LuaSnip'}
+  use {'saadparwaiz1/cmp_luasnip'}
 
   -- python
   use {

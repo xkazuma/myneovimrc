@@ -26,6 +26,25 @@ pure-lua: clean
 ifeq (,$(wildcard ~/.local/share/nvim/site/pack/packer))
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 endif
+	# install deno
+	sh ./installer/deno/install.sh
+	# install nodejs
+	sh ./installer/nodejs/install.sh 
+	# config files
+	cp -rf ./init.lua ~/.config/nvim/ 
+	cp -rf ./lua      ~/.config/nvim/ 
+	mkdir -p ~/.local/bin
+	ln ./docker/compose/nvim-texlive-env/bin/latexmk ~/.local/bin -f 
+	ln ./docker/compose/nvim-texlive-env/bin/qpdfview ~/.local/bin -f 
+  
+	@make neovim
+	@make magma-nvim
+	@make vimtex
+
+pure-lua-docker: clean
+ifeq (,$(wildcard ~/.local/share/nvim/site/pack/packer))
+	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
+endif
 	# config files
 	cp -rf ./init.lua ~/.config/nvim/ 
 	cp -rf ./lua      ~/.config/nvim/ 
