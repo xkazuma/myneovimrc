@@ -127,6 +127,9 @@ function(use)
       'hrsh7th/cmp-nvim-lsp',
     }
   }
+  use {'WhoIsSethDaniel/mason-tool-installer.nvim',
+    config = function() require('config.mason-tool-installer-setup') end
+  }
   use {'hrsh7th/cmp-nvim-lsp'}
   use {'hrsh7th/cmp-buffer'}
   use {'hrsh7th/cmp-path'}
@@ -140,7 +143,11 @@ function(use)
      config = function() require('config.cmp-setup') end,
      requires = {'hrsh7th/cmp-nvim-lsp'}
   }
-  use {'L3MON4D3/LuaSnip'}
+  use {'L3MON4D3/LuaSnip',
+    tag = "v2.0.0",
+    run = "make install_jsregexp",
+    config = function() require('config.luasnip-setup') end
+  }
   use {'saadparwaiz1/cmp_luasnip'}
 
   -- python
