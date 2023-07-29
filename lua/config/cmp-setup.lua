@@ -63,6 +63,7 @@ cmp.setup({
 if cmp.visible() then
   cmp.select_next_item()
 end
+
  cmp.setup.cmdline(':', {
    mapping = cmp.mapping.preset.cmdline(),
    sources = cmp.config.sources({
