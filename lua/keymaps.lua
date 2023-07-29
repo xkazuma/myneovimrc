@@ -18,9 +18,12 @@ keymap("", "<Space>", "<Nop>", opts)
 -- Normal -- 
 keymap("n", "<C-f>", ":NvimTreeToggle<Return>", opts)
 keymap("n", "<C-s>", ":T<Return>",              opts)
+keymap("n", "<C-a>", "ggVG",                    opts)
+keymap("n", "<C-p>", '"*p',                     opts)
+
 
 -- Terminal -- 
-keymap("t", "<C-f>",        ":NvimTreeToggle<Return>", opts)
+keymap("t", "<C-f>",        "<cmd>NvimTreeToggle<cr>", opts)
 keymap("t", "<ESC>",        "<C-\\><C-n>",             opts)
 keymap("t", "<C-[>",        "<C-\\><C-n>",             opts)
 keymap("t", "<C-W>n",       "<cmd>new<cr>",            opts)
@@ -68,3 +71,4 @@ keymap("t", "<C-W>-",       "<cmd>wincmd -<cr>",       opts)
 keymap("t", "<C-W>+",       "<cmd>wincmd +<cr>",       opts)
 keymap("t", "<C-W>z",       "<cmd>pclose<cr>",         opts)
 keymap("t", "<C-W><C-Z>",   "<cmd>pclose<cr>",         opts)
+keymap("t", "<C-s>",        "<cmd>quit<cr>",           opts)
