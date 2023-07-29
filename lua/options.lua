@@ -9,7 +9,7 @@ local options = {
 	conceallevel   = 0,
 	hlsearch       = true,
 	ignorecase     = true,
-	mouse          = "a",
+	mouse          = "",
 	pumheight      = 10,
 	showmode       = false,
 	showtabline    = 2,
@@ -51,4 +51,3 @@ end
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
-vim.cmd([[set formatoptions-=cro]])
