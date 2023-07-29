@@ -3,7 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 
 -- Terminal-related --
 -- open terminal window below
-vim.cmd("command! -nargs=* T split | wincmd j | resize 15 | terminal <args>")
+vim.cmd("command! -nargs=* T split | wincmd j | resize 10 | terminal <args>")
 -- open terminal with insert mode
 autocmd("TermOpen", {
   pattern = "*",
