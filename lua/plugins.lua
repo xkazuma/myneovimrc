@@ -123,8 +123,12 @@ function(use)
     config = function() require('config.mason-setup') end,
     requires = {
       'williamboman/mason-lspconfig.nvim',
-      'neovim/nvim-lspconfig',
       'hrsh7th/cmp-nvim-lsp',
+      {
+        'neovim/nvim-lspconfig',
+        config = function() require('config.lspconfig-setup') end,
+        requires = {"folke/neoconf.nvim"}
+      }
     }
   }
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -149,6 +153,20 @@ function(use)
     config = function() require('config.luasnip-setup') end
   }
   use {'saadparwaiz1/cmp_luasnip'}
+
+  -- Debug Adapter Protocol
+  use {
+    "rcarriga/nvim-dap-ui",
+    config = function() require('config.nvim-dap-ui-setup') end,
+    requires = {
+      "mfussenegger/nvim-dap",
+      'neovim/nvim-lspconfig',
+    }
+  }
+  use {
+    "folke/neodev.nvim",
+    config = function() require('config.neodev-setup') end,
+  }
 
   -- python
   use {
