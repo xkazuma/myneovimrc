@@ -115,8 +115,9 @@ function(use)
         config = function() require('config.denops-setup') end}
   use {'windwp/nvim-autopairs',event = 'InsertEnter'}
   use {'j-hui/fidget.nvim', event = 'LspAttach'}
-  use {'nvim-telescope/telescope.nvim', cmd = 'Telescope',
-        requires = {'nvim-lua/plenary.nvim'}}
+  use {'nvim-telescope/telescope.nvim',
+    requires = {'nvim-lua/plenary.nvim'},
+    config = function() require('config.telescope-setup') end}
   use {'echasnovski/mini.surround'}
 
   use {"williamboman/mason.nvim",
@@ -126,8 +127,8 @@ function(use)
       'hrsh7th/cmp-nvim-lsp',
       {
         'neovim/nvim-lspconfig',
+        requires = {"folke/neoconf.nvim"},
         config = function() require('config.lspconfig-setup') end,
-        requires = {"folke/neoconf.nvim"}
       }
     }
   }
