@@ -109,6 +109,9 @@ function(use)
     "edluffy/hologram.nvim",
     config = function() require('config.hologram-setup') end
   }
+  use {'echasnovski/mini.surround',
+    config = function() require('config.minisurround-setup') end
+  }
 
   -- complition plugin
   use {'vim-denops/denops.vim', lazy = false,
@@ -118,7 +121,6 @@ function(use)
   use {'nvim-telescope/telescope.nvim',
     requires = {'nvim-lua/plenary.nvim'},
     config = function() require('config.telescope-setup') end}
-  use {'echasnovski/mini.surround'}
 
   use {"williamboman/mason.nvim",
     config = function() require('config.mason-setup') end,
