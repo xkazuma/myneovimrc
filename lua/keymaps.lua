@@ -1,11 +1,12 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
---local keymap = vim.keymap
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
+vim.g.maplocalleader  = ' '
+vim.g.mapleader       = ' '
 
 -- Modes
 --   normal_mode = 'n',
@@ -16,14 +17,14 @@ keymap("", "<Space>", "<Nop>", opts)
 --   command_mode = 'c',
 
 -- Normal -- 
-keymap("n", "<C-f>", ":NvimTreeToggle<Return>", opts)
-keymap("n", "<C-s>", ":T<Return>",              opts)
-keymap("n", "<C-a>", "ggVG",                    opts)
-keymap("n", "<C-p>", '"*p',                     opts)
-
+keymap("n", "<C-3>",     ":T<Return>",          opts)
+keymap("n", "<C-f>",     ":F<Return>",          opts)
+keymap("n", "<C-a>",     "ggVG",                opts)
+keymap("n", "<C-P>",     "\"+p",                opts)
+keymap("n", "<C-Space>", "<cmd>Telescope<cr>",  opts)
 
 -- Terminal -- 
-keymap("t", "<C-f>",        "<cmd>NvimTreeToggle<cr>", opts)
+keymap("t", "<C-f>",        "<cmd>F<cr>", opts)
 keymap("t", "<ESC>",        "<C-\\><C-n>",             opts)
 keymap("t", "<C-[>",        "<C-\\><C-n>",             opts)
 keymap("t", "<C-W>n",       "<cmd>new<cr>",            opts)
