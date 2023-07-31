@@ -105,10 +105,6 @@ function(use)
     config = function() require('config.nvim-tree-setup') end
   }
   use "rcarriga/nvim-notify"
-  use {
-    "edluffy/hologram.nvim",
-    config = function() require('config.hologram-setup') end
-  }
   use {'echasnovski/mini.surround',
     config = function() require('config.minisurround-setup') end
   }
