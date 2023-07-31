@@ -125,7 +125,6 @@ function(use)
       'hrsh7th/cmp-nvim-lsp',
       {
         'neovim/nvim-lspconfig',
-        requires = {"folke/neoconf.nvim"},
         config = function() require('config.lspconfig-setup') end,
       }
     }
