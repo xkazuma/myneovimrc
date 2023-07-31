@@ -28,6 +28,8 @@ extensions = {
   }
 }
 
+require('telescope').load_extension("noice")
+
 local keymap = vim.keymap.set
 local telescope = require('telescope.builtin')
 keymap('n', '<leader>ff', telescope.find_files, {})

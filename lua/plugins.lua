@@ -104,7 +104,26 @@ function(use)
     },
     config = function() require('config.nvim-tree-setup') end
   }
-  use "rcarriga/nvim-notify"
+  use {'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function() require('config.telescope-setup') end}
+  use {
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify"
+    },
+    config = function() require('config.noice-setup') end
+  }
+  use {
+    "rcarriga/nvim-notify",
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function() require('config.nvim-notify-setup') end
+  }
   use {'echasnovski/mini.surround',
     config = function() require('config.minisurround-setup') end
   }
@@ -114,9 +133,6 @@ function(use)
         config = function() require('config.denops-setup') end}
   use {'windwp/nvim-autopairs',event = 'InsertEnter'}
   use {'j-hui/fidget.nvim', event = 'LspAttach'}
-  use {'nvim-telescope/telescope.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    config = function() require('config.telescope-setup') end}
 
   use {"williamboman/mason.nvim",
     config = function() require('config.mason-setup') end,
@@ -129,6 +145,7 @@ function(use)
       }
     }
   }
+
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end
   }
