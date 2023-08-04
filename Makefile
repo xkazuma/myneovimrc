@@ -22,7 +22,7 @@ vim-hybrid: all
 vscode:
 	cp -f init-vscode.vim ~/.config/nvim
 
-pure-lua: clean
+install-pure-lua: clean
 ifeq (,$(wildcard ~/.local/share/nvim/site/pack/packer))
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 endif
@@ -41,7 +41,7 @@ endif
 	@make magma-nvim
 	@make vimtex
 
-pure-lua-docker: clean
+install-pure-lua-docker: clean
 ifeq (,$(wildcard ~/.local/share/nvim/site/pack/packer))
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 endif
@@ -74,3 +74,7 @@ vimtex:
 	@echo "echo GROUPID=$$(id -g) >> .env"
 	@echo "docker compose build"
 
+update-conf: 
+	# config files
+	cp -rf ./init.lua ~/.config/nvim/ 
+	cp -rf ./lua      ~/.config/nvim/ 

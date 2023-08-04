@@ -82,10 +82,9 @@ function(use)
     config = function() require('config.gitsigns-setup') end
   }
 
-  
   -- colorscheme
-  use "nanotech/jellybeans.vim"
-  
+  use {"nanotech/jellybeans.vim"}
+  use {"savq/melange-nvim"}
   -- visual of editor
   use "nvim-lua/popup.nvim"
   use {
@@ -127,6 +126,21 @@ function(use)
   use {'echasnovski/mini.surround',
     config = function() require('config.minisurround-setup') end
   }
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "*",
+    requires = 'nvim-tree/nvim-web-devicons',
+    config = function() require('config.bufferline-setup') end
+  }
+
+--   use {
+--     'windwp/nvim-ts-autotag',
+--     config = function() require('config.nvim-ts-autotag-setup') end
+--   }
+--   use {
+--     'windwp/nvim-autopairs',
+--     config = function() require('config.nvim-autopairs-setup') end
+--   }
 
   -- complition plugin
   use {'vim-denops/denops.vim', lazy = false,
