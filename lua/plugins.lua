@@ -82,10 +82,9 @@ function(use)
     config = function() require('config.gitsigns-setup') end
   }
 
-  
   -- colorscheme
-  use "nanotech/jellybeans.vim"
-  
+  use {"nanotech/jellybeans.vim"}
+  use {"savq/melange-nvim"}
   -- visual of editor
   use "nvim-lua/popup.nvim"
   use {
@@ -104,21 +103,50 @@ function(use)
     },
     config = function() require('config.nvim-tree-setup') end
   }
-  use "rcarriga/nvim-notify"
+  use {'nvim-telescope/telescope.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function() require('config.telescope-setup') end}
   use {
-    "edluffy/hologram.nvim",
-    config = function() require('config.hologram-setup') end
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify"
+    },
+    config = function() require('config.noice-setup') end
   }
+  use {
+    "rcarriga/nvim-notify",
+    requires = {
+      'nvim-lua/plenary.nvim',
+    },
+    config = function() require('config.nvim-notify-setup') end
+  }
+  use {'echasnovski/mini.surround',
+    config = function() require('config.minisurround-setup') end
+  }
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "*",
+    requires = 'nvim-tree/nvim-web-devicons',
+    config = function() require('config.bufferline-setup') end
+  }
+
+--   use {
+--     'windwp/nvim-ts-autotag',
+--     config = function() require('config.nvim-ts-autotag-setup') end
+--   }
+--   use {
+--     'windwp/nvim-autopairs',
+--     config = function() require('config.nvim-autopairs-setup') end
+--   }
 
   -- complition plugin
   use {'vim-denops/denops.vim', lazy = false,
         config = function() require('config.denops-setup') end}
   use {'windwp/nvim-autopairs',event = 'InsertEnter'}
   use {'j-hui/fidget.nvim', event = 'LspAttach'}
-  use {'nvim-telescope/telescope.nvim',
-    requires = {'nvim-lua/plenary.nvim'},
-    config = function() require('config.telescope-setup') end}
-  use {'echasnovski/mini.surround'}
 
   use {"williamboman/mason.nvim",
     config = function() require('config.mason-setup') end,
@@ -127,11 +155,11 @@ function(use)
       'hrsh7th/cmp-nvim-lsp',
       {
         'neovim/nvim-lspconfig',
-        requires = {"folke/neoconf.nvim"},
         config = function() require('config.lspconfig-setup') end,
       }
     }
   }
+
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end
   }
