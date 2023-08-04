@@ -216,6 +216,8 @@ function(use)
     config = function() require('config.vimtex-setup') end
   }
 
+  -- Waka time
+  use {'wakatime/vim-wakatime'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
