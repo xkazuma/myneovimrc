@@ -198,10 +198,20 @@ function(use)
   }
 
   -- Linter & Formatter
+  -- -- deplicated: use {"jose-elias-alvarez/null-ls.nvim", config = function() require('config.null-ls-setup') end,}
   use {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function() require('config.null-ls-setup') end,
+    "mhartington/formatter.nvim",
+    config = function() require('config.formatter-setup') end,
   }
+  use {
+    'folke/lsp-colors.nvim',
+    config = function() require('config.lsp-colors-setup') end,
+  }
+  use {
+    'kkharji/lspsaga.nvim',
+    config = function() require('config.lspsaga-setup') end,
+  }
+
 
   -- python
   use {
