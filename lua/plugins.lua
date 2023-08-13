@@ -69,153 +69,137 @@ packer.init({
 return packer.startup(
 function(use) 
 
-  use "wbthomason/packer.nvim"
+  -- ---------------------------------------------
+  -- plugin manager
+  -- ---------------------------------------------
+  use {"wbthomason/packer.nvim"}
 
+  -- ---------------------------------------------
   -- git-related
-  use {
-    "TimUntersberger/neogit",
-    requires = "nvim-lua/plenary.nvim",
-    config = function() require('config.neogit-setup') end
-  }
-  use {
-    "lewis6991/gitsigns.nvim",
-    config = function() require('config.gitsigns-setup') end
-  }
+  -- ---------------------------------------------
+  use {'TimUntersberger/neogit',
+    requires = 'nvim-lua/plenary.nvim',
+    config   = function() require('config.neogit-setup') end}
+  use {'lewis6991/gitsigns.nvim',
+    config = function() require('config.gitsigns-setup') end}
 
+  -- ---------------------------------------------
   -- colorscheme
-  use {"nanotech/jellybeans.vim"}
-  use {"savq/melange-nvim"}
+  -- ---------------------------------------------
+  use {'nanotech/jellybeans.vim'}
+  use {'savq/melange-nvim'}
+
+  -- ---------------------------------------------
   -- visual of editor
-  use "nvim-lua/popup.nvim"
-  use {
-    "nvim-lualine/lualine.nvim",
-    requires = {
-      "nvim-tree/nvim-web-devicons", opt = true
-    },
-    config = function() require('config.lualine-setup') end
-  }
+  -- ---------------------------------------------
+  use {'nvim-lua/popup.nvim'}
+  use {'nvim-lualine/lualine.nvim',
+    requires = {'nvim-tree/nvim-web-devicons', opt = true},
+    config   = function() require('config.lualine-setup') end}
 
+  -- ---------------------------------------------
   -- enhancing editor
-  use {
-    "kyazdani42/nvim-tree.lua",
-    requires = {
-      "nvim-tree/nvim-web-devicons", opt = true
-    },
-    config = function() require('config.nvim-tree-setup') end
-  }
+  -- ---------------------------------------------
+  -- filer
+  use {'kyazdani42/nvim-tree.lua',
+    requires = {'nvim-tree/nvim-web-devicons', opt = true},
+    config   = function() require('config.nvim-tree-setup') end}
+  -- fuzzy finder
   use {'nvim-telescope/telescope.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-    },
-    config = function() require('config.telescope-setup') end}
-  use {
-    "folke/noice.nvim",
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify"
-    },
-    config = function() require('config.noice-setup') end
-  }
-  use {
-    "rcarriga/nvim-notify",
-    requires = {
-      'nvim-lua/plenary.nvim',
-    },
-    config = function() require('config.nvim-notify-setup') end
-  }
-  use {'echasnovski/mini.surround',
-    config = function() require('config.minisurround-setup') end
-  }
-  use {
-    'akinsho/bufferline.nvim',
-    tag = "*",
+    requires = {'nvim-lua/plenary.nvim'},
+    config   = function() require('config.telescope-setup') end}
+  -- notification
+  use {'folke/noice.nvim',
+    requires = {'MunifTanjim/nui.nvim', 'rcarriga/nvim-notify'},
+    config   = function() require('config.noice-setup') end}
+  -- notification
+  use {'rcarriga/nvim-notify',
+    requires = {'nvim-lua/plenary.nvim'},
+    config   = function() require('config.nvim-notify-setup') end}
+  -- tab UI
+  use {'akinsho/bufferline.nvim',
+    tag      = '*',
     requires = 'nvim-tree/nvim-web-devicons',
-    config = function() require('config.bufferline-setup') end
-  }
+    config   = function() require('config.bufferline-setup') end}
+  -- input helper
+  use {'echasnovski/mini.surround',
+    config = function() require('config.minisurround-setup') end}
+  use {'windwp/nvim-autopairs',
+    event = 'InsertEnter'}
+  -- use {'windwp/nvim-ts-autotag',
+  --   config = function() require('config.nvim-ts-autotag-setup') end}
+  -- use {'windwp/nvim-autopairs',
+  --   config = function() require('config.nvim-autopairs-setup') end}
 
---   use {
---     'windwp/nvim-ts-autotag',
---     config = function() require('config.nvim-ts-autotag-setup') end
---   }
---   use {
---     'windwp/nvim-autopairs',
---     config = function() require('config.nvim-autopairs-setup') end
---   }
+  -- ---------------------------------------------
+  -- deno runtime plugin
+  -- ---------------------------------------------
+  use {'vim-denops/denops.vim',
+    lazy   = false,
+    config = function() require('config.denops-setup') end}
+  use {'j-hui/fidget.nvim',
+    event = 'LspAttach'}
 
-  -- complition plugin
-  use {'vim-denops/denops.vim', lazy = false,
-        config = function() require('config.denops-setup') end}
-  use {'windwp/nvim-autopairs',event = 'InsertEnter'}
-  use {'j-hui/fidget.nvim', event = 'LspAttach'}
-
-  use {"williamboman/mason.nvim",
-    config = function() require('config.mason-setup') end,
-    requires = {
-      'williamboman/mason-lspconfig.nvim',
-      'hrsh7th/cmp-nvim-lsp',
-      {
-        'neovim/nvim-lspconfig',
-        config = function() require('config.lspconfig-setup') end,
-      }
-    }
-  }
-
+  -- ---------------------------------------------
+  -- LSP / Linter / DAP / Formatter integrated installer
+  -- ---------------------------------------------
+  use {'williamboman/mason.nvim',
+    config   = function() require('config.mason-setup') end,
+    requires = {'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp',
+      {'neovim/nvim-lspconfig',
+        config = function() require('config.lspconfig-setup') end}}}
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
-    config = function() require('config.mason-tool-installer-setup') end
-  }
-  use {'hrsh7th/cmp-nvim-lsp'}
-  use {'hrsh7th/cmp-buffer'}
-  use {'hrsh7th/cmp-path'}
-  use {'hrsh7th/cmp-cmdline'}
-  use {'hrsh7th/cmp-calc'}
-  use {'petertriho/cmp-git'}
-  use {'onsails/lspkind.nvim',
-    requires = {'mortepau/codicons.nvim'}
-  }
-  use {'hrsh7th/nvim-cmp',
-     config = function() require('config.cmp-setup') end,
-     requires = {'hrsh7th/cmp-nvim-lsp'}
-  }
+    config = function() require('config.mason-tool-installer-setup') end}
+
+  -- ---------------------------------------------
+  -- completion tools
+  -- ---------------------------------------------
+  use {'hrsh7th/cmp-nvim-lsp',
+       'hrsh7th/cmp-buffer',
+       'hrsh7th/cmp-path',
+       'hrsh7th/cmp-cmdline',
+       'hrsh7th/cmp-calc',
+       'petertriho/cmp-git',
+       'saadparwaiz1/cmp_luasnip',
+       'onsails/lspkind.nvim',
+       requires = {'mortepau/codicons.nvim'}}
   use {'L3MON4D3/LuaSnip',
-    tag = "v2.0.0",
-    run = "make install_jsregexp",
-    config = function() require('config.luasnip-setup') end
-  }
-  use {'saadparwaiz1/cmp_luasnip'}
+    tag    = 'v2.0.0',
+    run    = 'make install_jsregexp',
+    config = function() require('config.luasnip-setup') end}
+  use {'hrsh7th/nvim-cmp',
+    requires = {'hrsh7th/cmp-nvim-lsp'},
+    config   = function() require('config.cmp-setup') end}
 
-  -- Debug Adapter Protocol
-  use {
-    "rcarriga/nvim-dap-ui",
+  -- ---------------------------------------------
+  -- Debug Adapter Protocol (DAP)
+  -- ---------------------------------------------
+  use {'rcarriga/nvim-dap-ui',
     config = function() require('config.nvim-dap-ui-setup') end,
-    requires = {
-      "mfussenegger/nvim-dap",
-      'neovim/nvim-lspconfig',
-    }
-  }
-  use {
-    "folke/neodev.nvim",
-    config = function() require('config.neodev-setup') end,
-  }
+    requires = {'mfussenegger/nvim-dap', 'neovim/nvim-lspconfig'}}
+  use {'folke/neodev.nvim',
+    config = function() require('config.neodev-setup') end}
 
+  -- ---------------------------------------------
   -- Linter & Formatter
-  use {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function() require('config.null-ls-setup') end,
-  }
+  -- ---------------------------------------------
+  use {'mhartington/formatter.nvim',
+    config = function() require('config.formatter-setup') end}
+  use {'folke/lsp-colors.nvim',
+    config = function() require('config.lsp-colors-setup') end}
+  use {'kkharji/lspsaga.nvim',
+    config = function() require('config.lspsaga-setup') end}
 
-  -- python
-  use {
-    "dccsillag/magma-nvim",
-    run = ':UpdateRemotePlugins',
-    config = function() require('config.magma-setup') end
-  }
-
+  -- ---------------------------------------------
   -- LaTeX
-  use {
-    "lervag/vimtex",
-    config = function() require('config.vimtex-setup') end
-  }
+  -- ---------------------------------------------
+  use {'lervag/vimtex',
+    config = function() require('config.vimtex-setup') end}
 
+  -- ---------------------------------------------
+  -- Waka time
+  -- ---------------------------------------------
+  use {'wakatime/vim-wakatime'}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
