@@ -44,6 +44,7 @@ endif
 install-pure-lua-for-docker: 
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 	# config files
+	mkdir -p ~/.config/nvim
 	cp -rf ./init.lua ~/.config/nvim/ 
 	cp -rf ./lua      ~/.config/nvim/ 
 	mkdir -p ~/.local/bin
