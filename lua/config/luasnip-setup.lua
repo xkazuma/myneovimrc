@@ -538,4 +538,5 @@ ls.filetype_extend("lua", { "c" })
 ls.filetype_set("cpp", { "c" })
 
 -- see DOC.md/LUA SNIPPETS LOADER for some details.
-require("luasnip.loaders.from_lua").lazy_load({ include = { "all", "c", "cpp" } })
+require("luasnip.loaders.from_lua").lazy_load({ include = { "all", "c", "cpp"} })
+require("luasnip.loaders.from_vscode").lazy_load()

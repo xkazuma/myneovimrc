@@ -164,9 +164,10 @@ function(use)
        'onsails/lspkind.nvim',
        requires = {'mortepau/codicons.nvim'}}
   use {'L3MON4D3/LuaSnip',
-    tag    = 'v2.0.0',
-    run    = 'make install_jsregexp',
-    config = function() require('config.luasnip-setup') end}
+    tag      = 'v2.0.0',
+    run      = 'make install_jsregexp',
+    config   = function() require('config.luasnip-setup') end}
+  use {'rafamadriz/friendly-snippets'}
   use {'hrsh7th/nvim-cmp',
     requires = {'hrsh7th/cmp-nvim-lsp'},
     config   = function() require('config.cmp-setup') end}
