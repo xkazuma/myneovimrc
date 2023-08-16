@@ -198,6 +198,13 @@ function(use)
     config = function() require('config.vimtex-setup') end}
 
   -- ---------------------------------------------
+  -- Notebook
+  -- ---------------------------------------------
+  use {'kiyoon/jupynium.nvim',
+    run = 'pip3 install --user .',
+    config = function() require('config.jupynium-setup') end}
+
+  -- ---------------------------------------------
   -- Waka time
   -- ---------------------------------------------
   use {'wakatime/vim-wakatime'}
