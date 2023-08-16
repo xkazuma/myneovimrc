@@ -11,7 +11,6 @@ require("nvim-tree").setup {
   reload_on_bufenter  = false,
   respect_buf_cwd     = false,
   on_attach           = on_attach,
-  remove_keymaps      = false,
   select_prompts      = false,
   view                = {
     adaptive_size        = true,
