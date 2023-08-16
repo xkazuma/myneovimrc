@@ -1,4 +1,5 @@
 local cmp     = require('cmp')
+local compare = cmp.config.compare
 local lspkind = require('lspkind')
 local luasnip = require("luasnip")
 
@@ -14,10 +15,19 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
   },
   sources = {
-    { name = 'luasnip',  keyword_length = 1 },
-    { name = 'nvim_lsp', keyword_length = 2 },
-    { name = 'buffer',   keyword_length = 3 },
-    { name = 'path' },
+    { name = 'luasnip',  keyword_length = 1, priority = 40},
+    { name = 'jupynium', keyword_length = 2, priority = 35},
+    { name = 'nvim_lsp', keyword_length = 2, priority = 30},
+    { name = 'buffer',   keyword_length = 3, priority = 20},
+    { name = 'path',     keyword_length = 1, priority = 10},
+  },
+  sorting = {
+    priority_weight = 1.0,
+    comparators = {
+      compare.score,
+      compare.recently_used,
+      compare.locality
+    }
   },
   formatting = {
     format = lspkind.cmp_format({
