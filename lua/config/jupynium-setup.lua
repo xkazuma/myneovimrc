@@ -54,7 +54,7 @@ require("jupynium").setup({
   -- by downloading from the Jupyter Notebook server.
   -- WARNING: this will overwrite the file without asking
   -- Related command :JupyniumDownloadIpynb
-  auto_download_ipynb = true,
+  auto_download_ipynb = false,
 
   -- Automatically close tab that is in sync when you close buffer in vim.
   auto_close_tab = true,
@@ -81,7 +81,7 @@ require("jupynium").setup({
   -- Modify this if you already have lots of files in Jupytext format, for example.
   jupynium_file_pattern = { "*.ju.*" },
 
-  use_default_keybindings = true,
+  use_default_keybindings = false,
   textobjects = {
     use_default_keybindings = true,
   },
@@ -116,3 +116,16 @@ hi! link JupyniumMagicCommand Keyword
 
 -- Please share your favourite settings on other colour schemes, so I can add defaults.
 -- Currently, tokyonight is supported.
+--
+local keymap = vim.keymap.set
+
+keymap({ "n" },      "<space>jS",  "<cmd>JupyniumStartAndAttachToServer<CR>",           { desc = "Jupynium start and attach to server" })
+keymap({ "n" },      "<space>jss", "<cmd>JupyniumStartSync<CR>",                        { desc = "Jupynium sync start" })
+keymap({ "n" },      "<space>jsS", "<cmd>JupyniumStopSync<CR>",                         { desc = "Jupynium sync stop" })
+keymap({ "n" },      "<space>jh",  "<cmd>JupyniumKernelHover<cr>",                      { desc = "Jupynium hover (inspect a variable)"})
+keymap({ "n", "x" }, "<space>jcx", "<cmd>JupyniumExecuteSelectedCells<CR>",             { desc = "Jupynium execute selected cells" })
+keymap({ "n", "x" }, "<space>jcj", "<cmd>JupyniumScrollToCell<cr>",                     { desc = "Jupynium scroll to cell" })
+keymap({ "n", "x" }, "<space>joc", "<cmd>JupyniumClearSelectedCellsOutputs<CR>",        { desc = "Jupynium clear selected cells" })
+keymap({ "n", "x" }, "<space>joj", "<cmd>JupyniumToggleSelectedCellsOutputsScroll<cr>", { desc = "Jupynium toggle selected cell output scroll" })
+keymap("",           "<PageUp>",   "<cmd>JupyniumScrollUp<cr>",                         { desc = "Jupynium scroll up" })
+keymap("",           "<PageDown>", "<cmd>JupyniumScrollDown<cr>",                       { desc = "Jupynium scroll down" })
