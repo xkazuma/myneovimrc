@@ -151,6 +151,10 @@ function(use)
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end}
 
+  use {'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function() require('config.nvim-treesitter-setup') end}
+
   -- ---------------------------------------------
   -- completion tools
   -- ---------------------------------------------
