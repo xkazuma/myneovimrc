@@ -37,6 +37,12 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
   vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 end
-
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+vim.cmd('autocmd! TermEnter term://*toggleterm#* tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>')
+
+--  By applying the mappings this way you can pass a count to your
+--  mapping to open a specific window.
+--  For example: 2<C-t> will open terminal 2
+vim.keymap.set({'i', 'n', 't'}, '<silent><c-t>', '<Cmd>exe v:count1 . "ToggleTerm"<cr>', {})
+vim.keymap.set({'i', 'n', 't'}, '<silent><c-t>', '<Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>', {})
