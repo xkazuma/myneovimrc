@@ -2,7 +2,48 @@ local treesitter = require('nvim-treesitter')
 
 treesitter.setup({
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
+  ensure_installed = {
+    -- shell
+    "bash",
+    -- lang
+    "c",
+    "lua",
+    "python",
+    "java",
+    "rust",
+    -- web app
+    "html",
+    "css",
+    "scss",
+    "javascript",
+    "typescript",
+    "vue",
+    -- note
+    "markdown",
+    "markdown_inline",
+    -- data structure
+    "json",
+    "toml",
+    "yaml",
+    "xml",
+    -- editor
+    "vim",
+    "vimdoc",
+    -- query
+    "query",
+    "sql",
+    "graphql",
+    -- tex
+    "latex",
+    "bibtex",
+    -- docker
+    "dockerfile",
+    -- git
+    "git_config",
+    "git_rebase",
+    "gitignore",
+    "gitcommit",
+  },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -38,4 +79,21 @@ treesitter.setup({
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection    = "gnn",
+      node_incremental  = "grn",
+      scope_incremental = "grc",
+      node_decremental  = "grm",
+    }
+  },
+
+  indent = {
+    enable = true
+  }
 })
+
+vim.cmd('set foldmethod=expr')
+vim.cmd('set foldexpr=nvim_treesitter#foldexpr()')
