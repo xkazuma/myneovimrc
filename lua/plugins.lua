@@ -135,6 +135,13 @@ function(use)
     config = function() require('config.nvim-ts-autotag-setup') end}
 
   -- ---------------------------------------------
+  -- terminal
+  -- ---------------------------------------------
+  use {"akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function() require('config.toggleterm-setup').setup() end}
+
+  -- ---------------------------------------------
   -- deno runtime plugin
   -- ---------------------------------------------
   use {'vim-denops/denops.vim',
