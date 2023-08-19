@@ -77,9 +77,8 @@ function(use)
   -- ---------------------------------------------
   -- git-related
   -- ---------------------------------------------
-  use {'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim',
-    config   = function() require('config.neogit-setup') end}
+  use {'dinhhuy258/git.nvim',
+    config   = function() require('config.git-setup') end}
   use {'lewis6991/gitsigns.nvim',
     config = function() require('config.gitsigns-setup') end}
 
