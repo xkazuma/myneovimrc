@@ -92,6 +92,8 @@ function(use)
   -- visual of editor
   -- ---------------------------------------------
   use {'nvim-lua/popup.nvim'}
+  use {'nvim-tree/nvim-web-devicons',
+    config   = function() require('config.nvim-web-devicons-setup') end}
   use {'nvim-lualine/lualine.nvim',
     requires = {'nvim-tree/nvim-web-devicons', opt = true},
     config   = function() require('config.lualine-setup') end}
@@ -118,7 +120,7 @@ function(use)
   -- tab UI
   use {'akinsho/bufferline.nvim',
     tag      = '*',
-    requires = 'nvim-tree/nvim-web-devicons',
+    requires = {'nvim-tree/nvim-web-devicons', opt = true},
     config   = function() require('config.bufferline-setup') end}
   -- input helper
   use {'echasnovski/mini.surround',
