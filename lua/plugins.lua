@@ -139,7 +139,7 @@ function(use)
   -- ---------------------------------------------
   use {"akinsho/toggleterm.nvim",
     tag = '*',
-    config = function() require('config.toggleterm-setup').setup() end}
+    config = function() require('config.toggleterm-setup') end}
 
   -- ---------------------------------------------
   -- deno runtime plugin
