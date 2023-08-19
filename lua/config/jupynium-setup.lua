@@ -129,8 +129,8 @@ keymap({ "n", "x" }, "<space>joj", "<cmd>JupyniumToggleSelectedCellsOutputsScrol
 keymap("",           "<PageUp>",   "<cmd>JupyniumScrollUp<cr>",                         { desc = "Jupynium scroll up" })
 keymap("",           "<PageDown>", "<cmd>JupyniumScrollDown<cr>",                       { desc = "Jupynium scroll down" })
 
-keymap({ "n", "x", "o" }, "jk",        "<cmd>lua require'jupynium.textobj'.goto_previous_cell_separator()<cr>", { desc = "Go to previous Jupynium cell" })
-keymap({ "n", "x", "o" }, "jj",        "<cmd>lua require'jupynium.textobj'.goto_next_cell_separator()<cr>",     { desc = "Go to next Jupynium cell" })
+keymap({ "n", "x", "o" }, "<space>jk", "<cmd>lua require'jupynium.textobj'.goto_previous_cell_separator()<cr>", { desc = "Go to previous Jupynium cell" })
+keymap({ "n", "x", "o" }, "<space>jj", "<cmd>lua require'jupynium.textobj'.goto_next_cell_separator()<cr>",     { desc = "Go to next Jupynium cell" })
 keymap({ "n", "x", "o" }, "<space>jj", "<cmd>lua require'jupynium.textobj'.goto_current_cell_separator()<cr>",  { desc = "Go to current Jupynium cell" })
 keymap({ "x", "o" },      "aj",        "<cmd>lua require'jupynium.textobj'.select_cell(true, false)<cr>",       { desc = "Select around Jupynium cell" })
 keymap({ "x", "o" },      "ij",        "<cmd>lua require'jupynium.textobj'.select_cell(false, false)<cr>",      { desc = "Select inside Jupynium cell" })
