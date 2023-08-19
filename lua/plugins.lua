@@ -77,9 +77,8 @@ function(use)
   -- ---------------------------------------------
   -- git-related
   -- ---------------------------------------------
-  use {'TimUntersberger/neogit',
-    requires = 'nvim-lua/plenary.nvim',
-    config   = function() require('config.neogit-setup') end}
+  use {'dinhhuy258/git.nvim',
+    config   = function() require('config.git-setup') end}
   use {'lewis6991/gitsigns.nvim',
     config = function() require('config.gitsigns-setup') end}
 
@@ -151,6 +150,10 @@ function(use)
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end}
 
+  use {'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function() require('config.nvim-treesitter-setup') end}
+
   -- ---------------------------------------------
   -- completion tools
   -- ---------------------------------------------
@@ -196,6 +199,13 @@ function(use)
   -- ---------------------------------------------
   use {'lervag/vimtex',
     config = function() require('config.vimtex-setup') end}
+
+  -- ---------------------------------------------
+  -- Notebook
+  -- ---------------------------------------------
+  use {'kiyoon/jupynium.nvim',
+    run = 'pip3 install --user .',
+    config = function() require('config.jupynium-setup') end}
 
   -- ---------------------------------------------
   -- Waka time

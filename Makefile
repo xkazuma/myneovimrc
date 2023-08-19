@@ -41,18 +41,15 @@ endif
 	@make magma-nvim
 	@make vimtex
 
-install-pure-lua-docker: clean
-ifeq (,$(wildcard ~/.local/share/nvim/site/pack/packer))
+install-pure-lua-for-docker: 
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
-endif
 	# config files
+	mkdir -p ~/.config/nvim
 	cp -rf ./init.lua ~/.config/nvim/ 
 	cp -rf ./lua      ~/.config/nvim/ 
 	mkdir -p ~/.local/bin
-	ln ./docker/compose/nvim-texlive-env/bin/latexmk ~/.local/bin -f 
-	ln ./docker/compose/nvim-texlive-env/bin/qpdfview ~/.local/bin -f 
+	echo export PATH=~/.local/bin:$$PATH >> ~/.bashrc
 	@make neovim
-	@make magma-nvim
 	@make vimtex
 
 neovim:
