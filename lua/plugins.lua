@@ -124,11 +124,10 @@ function(use)
   use {'echasnovski/mini.surround',
     config = function() require('config.minisurround-setup') end}
   use {'windwp/nvim-autopairs',
-    event = 'InsertEnter'}
-  -- use {'windwp/nvim-ts-autotag',
-  --   config = function() require('config.nvim-ts-autotag-setup') end}
-  -- use {'windwp/nvim-autopairs',
-  --   config = function() require('config.nvim-autopairs-setup') end}
+    event = 'InsertEnter',
+    config = function() require('config.nvim-autopairs-setup') end}
+  use {'windwp/nvim-ts-autotag',
+    config = function() require('config.nvim-ts-autotag-setup') end}
 
   -- ---------------------------------------------
   -- deno runtime plugin
