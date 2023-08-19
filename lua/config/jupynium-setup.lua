@@ -122,7 +122,7 @@ keymap({ "n" },      "<space>jS",  "<cmd>JupyniumStartAndAttachToServer<CR>",   
 keymap({ "n" },      "<space>jss", "<cmd>JupyniumStartSync<CR>",                        { desc = "Jupynium sync start" })
 keymap({ "n" },      "<space>jsS", "<cmd>JupyniumStopSync<CR>",                         { desc = "Jupynium sync stop" })
 keymap({ "n" },      "<space>jh",  "<cmd>JupyniumKernelHover<cr>",                      { desc = "Jupynium hover (inspect a variable)"})
-keymap({ "n", "x" }, "<space>jcx", "<cmd>JupyniumExecuteSelectedCells<CR>",             { desc = "Jupynium execute selected cells" })
+keymap({ "n", "x" }, "<space>jx",  "<cmd>JupyniumExecuteSelectedCells<CR>",             { desc = "Jupynium execute selected cells" })
 keymap({ "n", "x" }, "<space>jcj", "<cmd>JupyniumScrollToCell<cr>",                     { desc = "Jupynium scroll to cell" })
 keymap({ "n", "x" }, "<space>joc", "<cmd>JupyniumClearSelectedCellsOutputs<CR>",        { desc = "Jupynium clear selected cells" })
 keymap({ "n", "x" }, "<space>joj", "<cmd>JupyniumToggleSelectedCellsOutputsScroll<cr>", { desc = "Jupynium toggle selected cell output scroll" })
@@ -131,7 +131,7 @@ keymap("",           "<PageDown>", "<cmd>JupyniumScrollDown<cr>",               
 
 keymap({ "n", "x", "o" }, "<space>jk", "<cmd>lua require'jupynium.textobj'.goto_previous_cell_separator()<cr>", { desc = "Go to previous Jupynium cell" })
 keymap({ "n", "x", "o" }, "<space>jj", "<cmd>lua require'jupynium.textobj'.goto_next_cell_separator()<cr>",     { desc = "Go to next Jupynium cell" })
-keymap({ "n", "x", "o" }, "<space>jj", "<cmd>lua require'jupynium.textobj'.goto_current_cell_separator()<cr>",  { desc = "Go to current Jupynium cell" })
+keymap({ "n", "x", "o" }, "<space>jC", "<cmd>lua require'jupynium.textobj'.goto_current_cell_separator()<cr>",  { desc = "Go to current Jupynium cell" })
 keymap({ "x", "o" },      "aj",        "<cmd>lua require'jupynium.textobj'.select_cell(true, false)<cr>",       { desc = "Select around Jupynium cell" })
 keymap({ "x", "o" },      "ij",        "<cmd>lua require'jupynium.textobj'.select_cell(false, false)<cr>",      { desc = "Select inside Jupynium cell" })
 keymap({ "x", "o" },      "aJ",        "<cmd>lua require'jupynium.textobj'.select_cell(true, true)<cr>",        { desc = "Select around Jupynium cell (include next cell separator)" })
