@@ -44,5 +44,5 @@ vim.cmd('autocmd! TermEnter term://*toggleterm#* tnoremap <silent><c-t> <Cmd>exe
 --  By applying the mappings this way you can pass a count to your
 --  mapping to open a specific window.
 --  For example: 2<C-t> will open terminal 2
-vim.keymap.set({'i', 'n', 't'}, '<silent><c-t>', '<Cmd>exe v:count1 . "ToggleTerm"<cr>', {})
-vim.keymap.set({'i', 'n', 't'}, '<silent><c-t>', '<Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>', {})
+vim.keymap.set({'i', 'n', 't'}, '<c-t>', '<Cmd>exe v:count1 . "ToggleTerm"<cr>',      { noremap = true, silent = true})
+vim.keymap.set({'i', 'n', 't'}, '<c-t>', '<Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>', { noremap = true, silent = true})
