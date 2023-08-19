@@ -9,7 +9,7 @@ tt.setup({
       return vim.o.columns * 0.4
     end
   end,
-  open_mapping      = [[<c-\]],
+  open_mapping      = [[<c-\>]],
   start_in_insert   = true,
   insert_mappings   = true, -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
@@ -44,5 +44,5 @@ vim.cmd('autocmd! TermEnter term://*toggleterm#* tnoremap <silent><c-t> <Cmd>exe
 --  By applying the mappings this way you can pass a count to your
 --  mapping to open a specific window.
 --  For example: 2<C-t> will open terminal 2
-vim.keymap.set({'i', 'n', 't'}, '<c-t>', '<Cmd>exe v:count1 . "ToggleTerm"<cr>',      { noremap = true, silent = true})
-vim.keymap.set({'i', 'n', 't'}, '<c-t>', '<Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>', { noremap = true, silent = true})
+vim.keymap.set({'n'}, '<c-t>', '<Cmd>exe v:count1 . "ToggleTerm"<cr>',      { noremap = true, silent = true})
+vim.keymap.set({'i'}, '<c-t>', '<Esc><Cmd>exe v:count1 . "ToggleTerm"<cr>', { noremap = true, silent = true})
