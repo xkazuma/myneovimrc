@@ -1,25 +1,6 @@
 local lspsaga = require('lspsaga')
 lspsaga.init_lsp_saga({
   border_style = "single",
-  finder = {
-    max_height = 0.6,
-    keys = {
-      vsplit = 'v'
-    },
-    methods = {
-      tyd = 'textDocument/typeDefinition'
-    }
-  },
-  symbol_in_winbar = {
-    enable = true,
-  },
-  code_action_lightbulb = {
-    enable = true,
-  },
-  show_outline = {
-    win_width    = 50,
-    auto_preview = false,
-  },
 })
 
 -- Buffer local mappings.
