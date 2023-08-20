@@ -134,8 +134,8 @@ function(use)
   use {'windwp/nvim-ts-autotag',
     config = function() require('config.nvim-ts-autotag-setup') end}
   -- show outline
-  use {'simrat39/simbols-outline.nvim',
-    config = function() require('config.simbols-outline-setup') end}
+  use {'simrat39/symbols-outline.nvim',
+    config = function() require('config.symbols-outline-setup') end}
 
   -- ---------------------------------------------
   -- terminal
