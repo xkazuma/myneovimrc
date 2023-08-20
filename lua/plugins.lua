@@ -67,7 +67,7 @@ packer.init({
 ---- }
 
 return packer.startup(
-function(use) 
+function(use)
 
   -- ---------------------------------------------
   -- plugin manager
@@ -133,6 +133,9 @@ function(use)
     config = function() require('config.nvim-autopairs-setup') end}
   use {'windwp/nvim-ts-autotag',
     config = function() require('config.nvim-ts-autotag-setup') end}
+  -- show outline
+  use {'simrat39/simbols-outline.nvim',
+    config = function() require('config.simbols-outline-setup') end}
 
   -- ---------------------------------------------
   -- terminal
