@@ -203,6 +203,7 @@ function(use)
   use {'folke/lsp-colors.nvim',
     config = function() require('config.lsp-colors-setup') end}
   use {'kkharji/lspsaga.nvim',
+    after = 'nvim-lspconfig',
     config = function() require('config.lspsaga-setup') end}
 
   -- ---------------------------------------------
