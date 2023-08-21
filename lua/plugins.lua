@@ -95,7 +95,7 @@ function(use)
   use {'nvim-tree/nvim-web-devicons',
     config   = function() require('config.nvim-web-devicons-setup') end}
   use {'nvim-lualine/lualine.nvim',
-    requires = {'nvim-tree/nvim-web-devicons', opt = true},
+    requires = {{'nvim-tree/nvim-web-devicons', opt = true}, 'SmiteshP/nvim-navic'},
     config   = function() require('config.lualine-setup') end}
   use {'echasnovski/mini.indentscope',
     branch = 'stable',

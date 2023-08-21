@@ -1,3 +1,6 @@
+local lualine = require('lualine')
+local navic   = require('nvim-navic')
+
 local colors = {
   blue   = '#80a0ff',
   cyan   = '#79dac8',
@@ -26,11 +29,11 @@ local bubbles_theme = {
   },
 }
 
-require('lualine').setup {
+lualine.setup {
   options = {
     theme = bubbles_theme,
-    component_separators = '|',
     section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
   },
   sections = {
     lualine_a = {
@@ -56,9 +59,22 @@ require('lualine').setup {
   extensions = {},
   winbar = {
     lualine_c = {
-      "navic",
-      color_correction = nil,
-      navic_opts = nil
+      {
+        function()
+          return navic.get_location()
+        end,
+        cond = function()
+          return navic.is_available()
+        end
+      },
     }
+  },
+  inactive_winbar = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
   }
 }
