@@ -174,6 +174,11 @@ function(use)
     requires = {'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp', 'neovim/nvim-lspconfig'}}
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end}
+  use {'mfussenegger/nvim-lint',
+    config = function() require('config.nvim-lint-setup') end}
+  use {'mhartington/formatter.nvim',
+    config = function() require('config.formatter-setup') end}
+
 
   use {'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
