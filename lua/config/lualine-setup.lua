@@ -35,8 +35,14 @@ lualine.setup {
     theme                = bubbles_theme,
     section_separators   = { left = '', right = '' },
     component_separators = { left = '', right = '' },
-    ignore_forcus        = {
-      'NvimTree', 'help', 'toggleterm'
+    ignore_forcus        = {},
+    disabled_filetypes   = {
+      statusline = {
+        'NvimTree', 'help', 'toggleterm'
+      },
+      winbar = {
+        'NvimTree', 'help', 'toggleterm'
+      }
     },
   },
   sections = {
