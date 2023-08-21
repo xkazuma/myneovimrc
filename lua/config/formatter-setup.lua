@@ -9,12 +9,8 @@ require("formatter").setup {
   log_level = vim.log.levels.WARN,
   -- All formatter configurations are opt-in
   filetype = {
-    -- Formatter configurations for filetype "lua" go here
-    -- and will be executed in order
-    lua = {
-      -- "formatter.filetypes.lua" defines default configurations for the "lua" filetype
-      require("formatter.filetypes.lua").stylua,
-    },
+    lua = { require("formatter.filetypes.lua").stylua },
+    tex = { require("formatter.filetypes.tex").latexindent },
 
     -- Use the special "*" filetype for defining formatter configurations on any filetype
     ["*"] = {

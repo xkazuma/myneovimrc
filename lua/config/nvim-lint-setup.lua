@@ -1,5 +1,17 @@
 local lint = require('lint')
 
+lint.linters_by_ft = {
+  java = {
+    'checkstyle',
+  },
+  markdown = {
+    'vale'
+  },
+  tex = {
+    'vale',
+  }
+}
+
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
   callback = function()
     lint.try_lint()

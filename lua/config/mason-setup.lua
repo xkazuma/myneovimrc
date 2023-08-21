@@ -31,25 +31,3 @@ mason_lspconfig.setup_handlers {
     }
   end
 }
-
-for _, package in ipairs(mason_registry.get_installed_packages()) do
-  local package_categories = package.spec.categories[1]
-  if package_categories == mason_package.Cat.Formatter then
-    for _, lang in package.spec.languages do
-      formatter.config.filetype[lang] = {
-        function()
-          return {
-            exe   = package.name,
-            args  = {},
-            stdin = true,
-          }
-        end
-      }
-    end
-  end
-  if package_categories == mason_package.Cat.Linter then
-    for _, lang in package.spec.languages do
-      linter.linters_by_ft[lang] = { package.name }
-    end
-  end
-end
