@@ -137,9 +137,9 @@ function(use)
   use {'simrat39/symbols-outline.nvim',
     config = function() require('config.symbols-outline-setup') end}
   -- show breadcrumbs
-  use {'loctvl842/breadcrumb.nvim',
-    requires = {'nvim-tree/nvim-web-devicons'},
-    config   = function() require('config.breadcrumb-setup') end}
+  use {'SmiteshP/nvim-navic',
+    requires = {'nvim-tree/nvim-web-devicons', 'neovim/nvim-lspconfig'},
+    config   = function() require('config.nvim-navic-setup') end}
 
   -- ---------------------------------------------
   -- terminal

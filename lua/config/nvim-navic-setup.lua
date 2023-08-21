@@ -1,10 +1,6 @@
-local breadcrumb = require("breadcrumb")
+local navic = require('nvim-navic')
 
-breadcrumb.setup({
-	disabled_filetype = {
-		"",
-		"help",
-	},
+navic.setup({
 	icons = {
     File          = "",
     Module        = "󱒌",
@@ -35,14 +31,14 @@ breadcrumb.setup({
     Component     = "󰹫",
     Fragment      = "",
 	},
-	separator = ">",
-	depth_limit = 0,
-	depth_limit_indicator = "..",
-    	color_icons = true,
-	highlight_group = {
-		component = "BreadcrumbText",
-		separator = "BreadcrumbSeparator",
-	},
+  lsp = {
+    auto_attach = true,
+  },
+  highlight             = true,
+  separator             = "  ",
+  depth_limit           = 0,
+  depth_limit_indicator = "..",
+  safe_output           = true,
+  lazy_update_context   = false,
+  click                 = false
 })
-
-breadcrumb.init()

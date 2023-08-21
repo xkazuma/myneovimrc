@@ -1,11 +1,11 @@
 -- then setup your lsp server as usual
 local lspconfig  = require('lspconfig')
-local breadcrumb = require("breadcrumb")
+local navic      = require('nvim-navic')
 
 lspconfig.setup({
   on_attach = function(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
-      breadcrumb.attach(client, bufnr)
+      navic.attach(client, bufnr)
     end
   end
 })
