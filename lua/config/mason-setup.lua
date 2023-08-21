@@ -35,7 +35,7 @@ mason_lspconfig.setup_handlers {
 for _, package in ipairs(mason_registry.get_installed_packages()) do
   local package_categories = package.spec.categories[1]
   if package_categories == mason_package.Cat.Formatter then
-    for lang in package.spec.languages[1] do
+    for lang in package.spec.languages do
       formatter.config.filetype[lang] = {
         function()
           return {
@@ -48,7 +48,7 @@ for _, package in ipairs(mason_registry.get_installed_packages()) do
     end
   end
   if package_categories == mason_package.Cat.Linter then
-    for lang in package.spec.languages[1] do
+    for lang in package.spec.languages do
       linter.linters_by_ft[lang] = { package.name }
     end
   end
