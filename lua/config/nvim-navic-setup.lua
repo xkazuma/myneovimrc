@@ -32,7 +32,7 @@ navic.setup({
     Fragment      = "",
 	},
   lsp = {
-    auto_attach = true,
+    auto_attach = false,
   },
   highlight             = true,
   separator             = "  ",
