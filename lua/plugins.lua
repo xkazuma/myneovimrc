@@ -158,6 +158,13 @@ function(use)
     event = 'LspAttach'}
 
   -- ---------------------------------------------
+  -- Runner 
+  -- ---------------------------------------------
+  use {'michaelb/sniprun',
+    run = 'sh ./install.sh',
+    config = function() require('config.sniprun-setup') end}
+
+  -- ---------------------------------------------
   -- LSP / Linter / DAP / Formatter integrated installer
   -- ---------------------------------------------
   use {'neovim/nvim-lspconfig',
@@ -222,6 +229,9 @@ function(use)
   -- ---------------------------------------------
   -- Notebook
   -- ---------------------------------------------
+  use {'kiyoon/jupynium.nvim',
+    run = 'pip3 install --user .',
+    config = function() require('config.jupynium-setup') end}
   use {'kiyoon/jupynium.nvim',
     run = 'pip3 install --user .',
     config = function() require('config.jupynium-setup') end}
