@@ -136,6 +136,10 @@ function(use)
   -- show outline
   use {'simrat39/symbols-outline.nvim',
     config = function() require('config.symbols-outline-setup') end}
+  -- show breadcrumbs
+  use {'loctvl842/breadcrumb.nvim',
+    requires = {'nvim-tree/nvim-web-devicons'},
+    config   = function() require('config.breadcrumb-setup') end}
 
   -- ---------------------------------------------
   -- terminal

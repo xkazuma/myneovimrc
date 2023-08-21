@@ -1,5 +1,14 @@
 -- then setup your lsp server as usual
-local lspconfig = require('lspconfig')
+local lspconfig  = require('lspconfig')
+local breadcrumb = require("breadcrumb")
+
+lspconfig.setup({
+  on_attach = function(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+      breadcrumb.attach(client, bufnr)
+    end
+  end
+})
 
 -- example to setup lua_ls and enable call snippets
 lspconfig.lua_ls.setup({
