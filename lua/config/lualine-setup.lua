@@ -35,6 +35,9 @@ lualine.setup {
     theme                = bubbles_theme,
     section_separators   = { left = '', right = '' },
     component_separators = { left = '', right = '' },
+    ignore_forcus        = {
+      'NvimTree', 'help', 'toggleterm'
+    },
   },
   sections = {
     lualine_a = {
@@ -69,6 +72,9 @@ lualine.setup {
           return navic.is_available()
         end
       },
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = {}
     }
   },
   inactive_winbar = {
