@@ -37,7 +37,13 @@ lualine.setup {
     component_separators = { left = '', right = '' },
     disabled_filetypes   = {
       statusline = {},
-      winbar     = {}
+      winbar     = {
+        'NvimTree',
+        'toggleterm',
+        'Outline',
+        'help',
+        'quickfix',
+      }
     },
   },
   sections = {
