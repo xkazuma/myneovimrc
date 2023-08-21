@@ -1,14 +1,5 @@
 -- then setup your lsp server as usual
 local lspconfig  = require('lspconfig')
-local navic      = require('nvim-navic')
-
-lspconfig.setup({
-  on_attach = function(client, bufnr)
-    if client.server_capabilities.documentSymbolProvider then
-      navic.attach(client, bufnr)
-    end
-  end
-})
 
 -- example to setup lua_ls and enable call snippets
 lspconfig.lua_ls.setup({
