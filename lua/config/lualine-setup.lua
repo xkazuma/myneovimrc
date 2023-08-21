@@ -31,15 +31,16 @@ local bubbles_theme = {
 
 lualine.setup {
   options = {
-    theme = bubbles_theme,
-    section_separators = { left = '', right = '' },
+    globalstatus         = true,
+    theme                = bubbles_theme,
+    section_separators   = { left = '', right = '' },
     component_separators = { left = '', right = '' },
   },
   sections = {
     lualine_a = {
       { 'mode', right_padding = 2 },
     },
-    lualine_b = { 'filename', 'branch' },
+    lualine_b = { 'branch' },
     lualine_c = { 'fileformat' },
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
@@ -58,6 +59,7 @@ lualine.setup {
   tabline = {},
   extensions = {},
   winbar = {
+    lualine_a = { 'filename' },
     lualine_c = {
       {
         function()
@@ -72,7 +74,7 @@ lualine.setup {
   inactive_winbar = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {'filename'},
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
