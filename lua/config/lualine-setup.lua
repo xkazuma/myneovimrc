@@ -64,6 +64,7 @@ lualine.setup {
   extensions = {},
   winbar = {
     lualine_a = { 'filename' },
+    lualine_b = {},
     lualine_c = {
       {
         function()
@@ -73,15 +74,24 @@ lualine.setup {
           return navic.is_available()
         end
       },
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {}
-    }
+    },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
   },
   inactive_winbar = {
-    lualine_a = {},
+    lualine_a = { 'filename' },
     lualine_b = {},
-    lualine_c = {},
+    lualine_c = {
+      {
+        function()
+          return navic.get_location()
+        end,
+        cond = function()
+          return navic.is_available()
+        end
+      },
+    },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
