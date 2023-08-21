@@ -160,11 +160,11 @@ function(use)
   -- ---------------------------------------------
   -- LSP / Linter / DAP / Formatter integrated installer
   -- ---------------------------------------------
+  use {'neovim/nvim-lspconfig',
+        config = function() require('config.lspconfig-setup') end}
   use {'williamboman/mason.nvim',
     config   = function() require('config.mason-setup') end,
-    requires = {'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp',
-      {'neovim/nvim-lspconfig',
-        config = function() require('config.lspconfig-setup') end}}}
+    requires = {'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp', 'neovim/nvim-lspconfig'}}
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end}
 
