@@ -1,4 +1,8 @@
-require("mason").setup({
+local mason           = require('mason')
+local mason_lspconfig = require('mason-lspconfig')
+local lspconfig       = require('lspconfig')
+local cmp_nvim_lsp    = require('cmp_nvim_lsp')
+mason.setup({
   ui = {
     border = 'single',
     icons = {
@@ -8,11 +12,12 @@ require("mason").setup({
     }
   }
 })
+mason_lspconfig.setup()
 
-require('mason-lspconfig').setup_handlers {
+mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = require('cmp_nvim_lsp').default_capabilities(),
+    lspconfig[server_name].setup {
+      capabilities = cmp_nvim_lsp.default_capabilities(),
     }
   end
 }
