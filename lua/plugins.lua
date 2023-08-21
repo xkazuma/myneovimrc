@@ -170,8 +170,14 @@ function(use)
   use {'neovim/nvim-lspconfig',
         config = function() require('config.lspconfig-setup') end}
   use {'williamboman/mason.nvim',
-    config   = function() require('config.mason-setup') end,
-    requires = {'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp', 'neovim/nvim-lspconfig'}}
+    requires = {
+      'williamboman/mason-lspconfig.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+      'neovim/nvim-lspconfig',
+      'mfussenegger/nvim-lint',
+      'mhartington/formatter.nvim',
+    },
+    config = function() require('config.mason-setup') end}
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end}
   use {'mfussenegger/nvim-lint',
