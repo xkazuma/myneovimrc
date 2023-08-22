@@ -9,9 +9,25 @@ require("formatter").setup {
   log_level = vim.log.levels.WARN,
   -- All formatter configurations are opt-in
   filetype = {
-    lua = { require("formatter.filetypes.lua").stylua },
-    tex = { require("formatter.filetypes.tex").latexindent },
-
+    shell = { require('formatter.filetypes.shell').shfmt },
+    bash  = { require('formatter.filetypes.bash').shfmt },
+    latex = { require('formatter.filetypes.latex').latexindent },
+    -- programming 
+    lua   = { require('formatter.filetypes.lua').stylua },
+    java  = {
+      function()
+        -- Full specification of configurations is down below and in Vim help files
+        return {
+          exe = "java",
+          args = {
+            "-jar",
+            "google-java-format-1.17.0-all-deps.jar",
+            "--lines"
+          },
+          stdin = true,
+        }
+      end
+    },
     -- Use the special "*" filetype for defining formatter configurations on any filetype
     ["*"] = {
       -- "formatter.filetypes.any" defines default configurations for any filetype
