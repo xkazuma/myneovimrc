@@ -103,6 +103,9 @@ function(use)
   use {'norcalli/nvim-colorizer.lua',
     cmd    = 'ColorizerToggle',
     config = function() require('config.nvim-colorizer-setup') end}
+  use {'folke/todo-comments.nvim',
+    requires = {'nvim-lua/plenary.nvim' },
+    config   = function() require('config.todo-comments-setup') end}
 
   -- ---------------------------------------------
   -- enhancing editor
