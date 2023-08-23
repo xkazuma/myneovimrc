@@ -100,6 +100,9 @@ function(use)
   use {'echasnovski/mini.indentscope',
     branch = 'stable',
     config   = function() require('config.mini-indentscope-setup') end}
+  use {'norcalli/nvim-colorizer.lua',
+    cmd    = 'ColorizerToggle',
+    config = function() require('config.nvim-colorizer-setup') end}
 
   -- ---------------------------------------------
   -- enhancing editor
