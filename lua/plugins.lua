@@ -167,8 +167,17 @@ function(use)
   -- ---------------------------------------------
   -- LSP / Linter / DAP / Formatter integrated installer
   -- ---------------------------------------------
+  -- LSP 
+  -- ---
   use {'neovim/nvim-lspconfig',
         config = function() require('config.lspconfig-setup') end}
+  use {'kkharji/lspsaga.nvim',
+    after = 'nvim-lspconfig',
+    config = function() require('config.lspsaga-setup') end}
+  use {'folke/lsp-colors.nvim',
+    config = function() require('config.lsp-colors-setup') end}
+  -- Integrated installer
+  -- --------------------
   use {'williamboman/mason.nvim',
     requires = {
       'williamboman/mason-lspconfig.nvim',
@@ -180,12 +189,25 @@ function(use)
     config = function() require('config.mason-setup') end}
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end}
+  -- Linter
+  -- ------
   use {'mfussenegger/nvim-lint',
     config = function() require('config.nvim-lint-setup') end}
+  -- Formatter
+  -- ---------
   use {'mhartington/formatter.nvim',
     config = function() require('config.formatter-setup') end}
+  -- Debug Adapter Protocol (DAP)
+  -- ----------------------------
+  use {'rcarriga/nvim-dap-ui',
+    config = function() require('config.nvim-dap-ui-setup') end,
+    requires = {'mfussenegger/nvim-dap', 'neovim/nvim-lspconfig'}}
+  use {'folke/neodev.nvim',
+    config = function() require('config.neodev-setup') end}
 
-
+  -- ---------------------------------------------
+  -- related to TreeSitter
+  -- ---------------------------------------------
   use {'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function() require('config.nvim-treesitter-setup') end}
@@ -212,26 +234,6 @@ function(use)
     config   = function() require('config.cmp-setup') end}
 
   -- ---------------------------------------------
-  -- Debug Adapter Protocol (DAP)
-  -- ---------------------------------------------
-  use {'rcarriga/nvim-dap-ui',
-    config = function() require('config.nvim-dap-ui-setup') end,
-    requires = {'mfussenegger/nvim-dap', 'neovim/nvim-lspconfig'}}
-  use {'folke/neodev.nvim',
-    config = function() require('config.neodev-setup') end}
-
-  -- ---------------------------------------------
-  -- Linter & Formatter
-  -- ---------------------------------------------
-  use {'mhartington/formatter.nvim',
-    config = function() require('config.formatter-setup') end}
-  use {'folke/lsp-colors.nvim',
-    config = function() require('config.lsp-colors-setup') end}
-  use {'kkharji/lspsaga.nvim',
-    after = 'nvim-lspconfig',
-    config = function() require('config.lspsaga-setup') end}
-
-  -- ---------------------------------------------
   -- LaTeX
   -- ---------------------------------------------
   use {'lervag/vimtex',
@@ -240,9 +242,6 @@ function(use)
   -- ---------------------------------------------
   -- Notebook
   -- ---------------------------------------------
-  use {'kiyoon/jupynium.nvim',
-    run = 'pip3 install --user .',
-    config = function() require('config.jupynium-setup') end}
   use {'kiyoon/jupynium.nvim',
     run = 'pip3 install --user .',
     config = function() require('config.jupynium-setup') end}
