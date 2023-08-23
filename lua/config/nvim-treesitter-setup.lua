@@ -94,6 +94,3 @@ treesitter.setup({
     enable = true
   }
 })
-
-vim.cmd('set foldmethod=expr')
-vim.cmd('set foldexpr=nvim_treesitter#foldexpr()')

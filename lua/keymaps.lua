@@ -17,9 +17,8 @@ vim.g.mapleader       = ' '
 --   command_mode = 'c',
 
 -- Normal -- 
-keymap("n", "<C-3>",     ":T<Return>",          opts)
-keymap("n", "<C-f>",     ":F<Return>",          opts)
-keymap("n", "<C-a>",     "ggVG",                opts)
+keymap("n", "<C-f>",     ":F<cr>",          opts)
+keymap("n", "<C-o>",     ":O<cr>",          opts)
 keymap("n", "<C-P>",     "\"+p",                opts)
 keymap("n", "<C-Space>", "<cmd>Telescope<cr>",  opts)
 

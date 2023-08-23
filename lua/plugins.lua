@@ -67,7 +67,7 @@ packer.init({
 ---- }
 
 return packer.startup(
-function(use) 
+function(use)
 
   -- ---------------------------------------------
   -- plugin manager
@@ -92,9 +92,14 @@ function(use)
   -- visual of editor
   -- ---------------------------------------------
   use {'nvim-lua/popup.nvim'}
+  use {'nvim-tree/nvim-web-devicons',
+    config   = function() require('config.nvim-web-devicons-setup') end}
   use {'nvim-lualine/lualine.nvim',
-    requires = {'nvim-tree/nvim-web-devicons', opt = true},
+    requires = {{'nvim-tree/nvim-web-devicons', opt = true}, 'SmiteshP/nvim-navic'},
     config   = function() require('config.lualine-setup') end}
+  use {'echasnovski/mini.indentscope',
+    branch = 'stable',
+    config   = function() require('config.mini-indentscope-setup') end}
 
   -- ---------------------------------------------
   -- enhancing editor
@@ -118,17 +123,30 @@ function(use)
   -- tab UI
   use {'akinsho/bufferline.nvim',
     tag      = '*',
-    requires = 'nvim-tree/nvim-web-devicons',
+    requires = {'nvim-tree/nvim-web-devicons', opt = true},
     config   = function() require('config.bufferline-setup') end}
   -- input helper
   use {'echasnovski/mini.surround',
     config = function() require('config.minisurround-setup') end}
   use {'windwp/nvim-autopairs',
-    event = 'InsertEnter'}
-  -- use {'windwp/nvim-ts-autotag',
-  --   config = function() require('config.nvim-ts-autotag-setup') end}
-  -- use {'windwp/nvim-autopairs',
-  --   config = function() require('config.nvim-autopairs-setup') end}
+    event = 'InsertEnter',
+    config = function() require('config.nvim-autopairs-setup') end}
+  use {'windwp/nvim-ts-autotag',
+    config = function() require('config.nvim-ts-autotag-setup') end}
+  -- show outline
+  use {'simrat39/symbols-outline.nvim',
+    config = function() require('config.symbols-outline-setup') end}
+  -- show breadcrumbs
+  use {'SmiteshP/nvim-navic',
+    requires = {'nvim-tree/nvim-web-devicons', 'neovim/nvim-lspconfig'},
+    config   = function() require('config.nvim-navic-setup') end}
+
+  -- ---------------------------------------------
+  -- terminal
+  -- ---------------------------------------------
+  use {"akinsho/toggleterm.nvim",
+    tag = '*',
+    config = function() require('config.toggleterm-setup') end}
 
   -- ---------------------------------------------
   -- deno runtime plugin
@@ -140,15 +158,33 @@ function(use)
     event = 'LspAttach'}
 
   -- ---------------------------------------------
+  -- Runner 
+  -- ---------------------------------------------
+  use {'michaelb/sniprun',
+    run = 'sh ./install.sh',
+    config = function() require('config.sniprun-setup') end}
+
+  -- ---------------------------------------------
   -- LSP / Linter / DAP / Formatter integrated installer
   -- ---------------------------------------------
+  use {'neovim/nvim-lspconfig',
+        config = function() require('config.lspconfig-setup') end}
   use {'williamboman/mason.nvim',
-    config   = function() require('config.mason-setup') end,
-    requires = {'williamboman/mason-lspconfig.nvim', 'hrsh7th/cmp-nvim-lsp',
-      {'neovim/nvim-lspconfig',
-        config = function() require('config.lspconfig-setup') end}}}
+    requires = {
+      'williamboman/mason-lspconfig.nvim',
+      'hrsh7th/cmp-nvim-lsp',
+      'neovim/nvim-lspconfig',
+      'mfussenegger/nvim-lint',
+      'mhartington/formatter.nvim',
+    },
+    config = function() require('config.mason-setup') end}
   use {'WhoIsSethDaniel/mason-tool-installer.nvim',
     config = function() require('config.mason-tool-installer-setup') end}
+  use {'mfussenegger/nvim-lint',
+    config = function() require('config.nvim-lint-setup') end}
+  use {'mhartington/formatter.nvim',
+    config = function() require('config.formatter-setup') end}
+
 
   use {'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
@@ -192,6 +228,7 @@ function(use)
   use {'folke/lsp-colors.nvim',
     config = function() require('config.lsp-colors-setup') end}
   use {'kkharji/lspsaga.nvim',
+    after = 'nvim-lspconfig',
     config = function() require('config.lspsaga-setup') end}
 
   -- ---------------------------------------------
@@ -203,6 +240,9 @@ function(use)
   -- ---------------------------------------------
   -- Notebook
   -- ---------------------------------------------
+  use {'kiyoon/jupynium.nvim',
+    run = 'pip3 install --user .',
+    config = function() require('config.jupynium-setup') end}
   use {'kiyoon/jupynium.nvim',
     run = 'pip3 install --user .',
     config = function() require('config.jupynium-setup') end}
@@ -218,4 +258,3 @@ function(use)
     require('packer').sync()
   end
 end)
-

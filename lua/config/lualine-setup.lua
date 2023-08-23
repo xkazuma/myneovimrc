@@ -1,3 +1,6 @@
+local lualine = require('lualine')
+local navic   = require('nvim-navic')
+
 local colors = {
   blue   = '#80a0ff',
   cyan   = '#79dac8',
@@ -26,17 +29,28 @@ local bubbles_theme = {
   },
 }
 
-require('lualine').setup {
+lualine.setup {
   options = {
-    theme = bubbles_theme,
-    component_separators = '|',
-    section_separators = { left = '', right = '' },
+    globalstatus         = true,
+    theme                = bubbles_theme,
+    section_separators   = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    disabled_filetypes   = {
+      statusline = {},
+      winbar     = {
+        'NvimTree',
+        'toggleterm',
+        'Outline',
+        'help',
+        'quickfix',
+      }
+    },
   },
   sections = {
     lualine_a = {
       { 'mode', right_padding = 2 },
     },
-    lualine_b = { 'filename', 'branch' },
+    lualine_b = { 'branch' },
     lualine_c = { 'fileformat' },
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
@@ -54,4 +68,38 @@ require('lualine').setup {
   },
   tabline = {},
   extensions = {},
+  winbar = {
+    lualine_a = { 'filename' },
+    lualine_b = {},
+    lualine_c = {
+      {
+        function()
+          return navic.get_location()
+        end,
+        cond = function()
+          return navic.is_available()
+        end
+      },
+    },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  inactive_winbar = {
+    lualine_a = { 'filename' },
+    lualine_b = {},
+    lualine_c = {
+      {
+        function()
+          return navic.get_location()
+        end,
+        cond = function()
+          return navic.is_available()
+        end
+      },
+    },
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  }
 }

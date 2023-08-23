@@ -1,49 +1,67 @@
 local lspsaga = require('lspsaga')
-lspsaga.setup{
-  debug = false,
+lspsaga.init_lsp_saga({})
+lspsaga.setup({
+  debug                    = false,
   use_saga_diagnostic_sign = true,
   -- diagnostic sign
-  error_sign = "",
-  warn_sign = "",
-  hint_sign = "",
-  infor_sign = "",
-  diagnostic_header_icon = "   ",
+  error_sign             = ' ',
+  warn_sign              = ' ',
+  hint_sign              = ' ',
+  infor_sign             = ' ',
+  diagnostic_header_icon = '󱡴 ',
   -- code action title icon
-  code_action_icon = " ",
+  code_action_icon   = ' ',
   code_action_prompt = {
-    enable = true,
-    sign = true,
+    enable        = true,
+    sign          = true,
     sign_priority = 40,
-    virtual_text = true,
+    virtual_text  = true,
   },
-  finder_definition_icon = "  ",
-  finder_reference_icon = "  ",
-  max_preview_lines = 10,
+  finder_definition_icon = ' ',
+  finder_reference_icon  = ' ',
+  max_preview_lines      = 10,
   finder_action_keys = {
-    open = "o",
-    vsplit = "s",
-    split = "i",
-    quit = "q",
-    scroll_down = "<C-f>",
-    scroll_up = "<C-b>",
+    open        = 'o',
+    vsplit      = 'v',
+    split       = 's',
+    quit        = 'q',
+    scroll_down = '<C-j>',
+    scroll_up   = '<C-k>',
   },
   code_action_keys = {
-    quit = "q",
-    exec = "<CR>",
+    quit = 'q',
+    exec = '<CR>',
   },
   rename_action_keys = {
-    quit = "<C-c>",
-    exec = "<CR>",
+    quit = '<C-e>',
+    exec = '<CR>',
   },
-  definition_preview_icon = "  ",
-  border_style = "single",
-  rename_prompt_prefix = "➤",
+  definition_preview_icon = ' ',
+  rename_prompt_prefix    = '󰑕 ',
   rename_output_qflist = {
-    enable = false,
-    auto_open_qflist = false,
+    enable           = true,
+    auto_open_qflist = true,
   },
-  server_filetype_map = {},
-  diagnostic_prefix_format = "%d. ",
-  diagnostic_message_format = "%m %c",
-  highlight_prefix = false,
-}
+  server_filetype_map       = {},
+  diagnostic_prefix_format  = '%d. ',
+  diagnostic_message_format = '%m %c',
+  highlight_prefix          = false,
+})
+
+-- Buffer local mappings.
+-- search in codes and functions
+vim.keymap.set('n', '<leader>sff', '<cmd>Lspsaga lsp_finder<CR>')
+vim.keymap.set('n', '<leader>sd[', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
+vim.keymap.set('n', '<leader>sd]', '<cmd>Lspsaga diagnostic_jump_next<CR>')
+vim.keymap.set('n', '<leader>sdd', '<cmd>Lspsaga show_line_diagnostics<CR>')
+vim.keymap.set('n', '<leader>ssh', '<cmd>Lspsaga signature_help<CR>')
+vim.keymap.set('n', '<leader>sp',  '<cmd>Lspsaga preview_definition<CR>')
+-- refactoring
+vim.keymap.set('n', '<leader>srr', '<cmd>Lspsaga rename<CR>')
+vim.keymap.set('n', '<leader>sri', '<cmd>Lspsaga implement<CR>')
+-- coding helper
+vim.keymap.set('n', '<leader>sh',  '<cmd>Lspsaga hover_doc<CR>')
+vim.keymap.set('n', '<leader>sca', '<cmd>Lspsaga code_action<CR>')
+vim.keymap.set('x', '<leader>sca', '<cmd>Lspsaga range_code_action<CR>')
+-- visual
+vim.keymap.set('x', '<leader>st',  '<cmd>Lspsaga toggle_virtual_text')
