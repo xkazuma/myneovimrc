@@ -104,7 +104,7 @@ function(use)
     cmd    = 'ColorizerToggle',
     config = function() require('config.nvim-colorizer-setup') end}
   use {'folke/todo-comments.nvim',
-    requires = {'nvim-lua/plenary.nvim' },
+    requires = {'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
     config   = function() require('config.todo-comments-setup') end}
 
   -- ---------------------------------------------
