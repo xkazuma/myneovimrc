@@ -227,6 +227,9 @@ function(use)
   use {'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function() require('config.nvim-treesitter-setup') end}
+  use {'David-Kunz/treesitter-unit',
+    requires = {'nvim-treesitter/nvim-treesitter'},
+    config   = function() require('config.treesitter-unit-setup') end}
 
   -- ---------------------------------------------
   -- completion tools
