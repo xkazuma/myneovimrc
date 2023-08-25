@@ -261,7 +261,7 @@ function(use)
   -- ---------------------------------------------
   -- Rust
   -- ---------------------------------------------
-  use {'nsimrat39/rust-tools',
+  use {'simrat39/rust-tools.nvim',
     requires = {
       'neovim/nvim-lspconfig',
       'nvim-lua/plenary.nvim',
