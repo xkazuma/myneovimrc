@@ -1,4 +1,4 @@
-local api        = api
+local vim        = vim
 local treehopper = require('tsht')
 
 treehopper.config.hint_keys = {
@@ -7,9 +7,12 @@ treehopper.config.hint_keys = {
   'r', 'a', 'n',
 }
 
-api.nvim_set_keymap('o',
+vim.api.nvim_set_keymap('o',
   '<leader>ht', '<cmd>lua require("tsht").nodes()<cr>',
   { noremap = false, silent = true })
-api.nvim_set_keymap({ 'n', 'x' },
+vim.api.nvim_set_keymap('n',
+  '<leader>ht', '<cmd>lua require("tsht").nodes()<cr>',
+  { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x',
   '<leader>ht', '<cmd>lua require("tsht").nodes()<cr>',
   { noremap = true, silent = true })
