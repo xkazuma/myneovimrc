@@ -281,6 +281,14 @@ function(use)
     config = function() require('config.jupynium-setup') end}
 
   -- ---------------------------------------------
+  -- File type dependencies
+  -- ---------------------------------------------
+  -- csv
+  use {'Decodetalkers/csv-tools.lua',
+    config = function() require('config.csv-tools-setup') end}
+
+
+  -- ---------------------------------------------
   -- Waka time
   -- ---------------------------------------------
   use {'wakatime/vim-wakatime'}
