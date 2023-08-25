@@ -259,6 +259,17 @@ function(use)
     config = function() require('config.vimtex-setup') end}
 
   -- ---------------------------------------------
+  -- Rust
+  -- ---------------------------------------------
+  use {'nsimrat39/rust-tools',
+    requires = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'mfussenegger/nvim-dap',
+    },
+    config   = function() require('config.rust-tools-setup') end}
+
+  -- ---------------------------------------------
   -- Notebook
   -- ---------------------------------------------
   use {'kiyoon/jupynium.nvim',
