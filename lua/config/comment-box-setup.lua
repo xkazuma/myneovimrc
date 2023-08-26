@@ -46,7 +46,7 @@ keymap({'n', 'x'}, '<leader>Cal', ':lua require("comment-box").albox(3)',      o
 keymap({'n', 'x'}, '<leader>Cac', ':lua require("comment-box").acbox(3)',      opts)
 keymap({'n', 'x'}, '<leader>Car', ':lua require("comment-box").arbox(3)',      opts)
 -- comment line
-keymap({'n', 'x'}, '<leader>CLL',  ':lua require("comment-box").albox(3)<cr>', opts) -- default
-keymap({'n', 'x'}, '<leader>CLl', ':lua require("comment-box").lline(2)',      opts)
+keymap({'n', 'x'}, '<leader>CLL',  ':lua require("comment-box").cline(2)<cr>', opts) -- default
+keymap({'n', 'x'}, '<leader>CLl', ':lua require("comment-box").line(2)',      opts)
 keymap({'n', 'x'}, '<leader>CLc', ':lua require("comment-box").cline(2)',      opts)
 keymap({'n', 'x'}, '<leader>CLr', ':lua require("comment-box").rline(2)',      opts)
