@@ -7,10 +7,6 @@ vim.cmd [[highlight IndentBlanklineIndent4 guifg=#665442 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent5 guifg=#766452 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent6 guifg=#867462 gui=nocombine]]
 
-vim.opt.list = true
-vim.opt.listchars:append 'space:⋅'
-vim.opt.listchars:append 'eol:↴'
-
 ib.setup {
     space_char_blankline = ' ',
     char_highlight_list  = {

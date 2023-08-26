@@ -97,9 +97,6 @@ function(use)
   use {'nvim-lualine/lualine.nvim',
     requires = {{'nvim-tree/nvim-web-devicons', opt = true}, 'SmiteshP/nvim-navic'},
     config   = function() require('config.lualine-setup') end}
-  use {'echasnovski/mini.indentscope',
-    branch = 'stable',
-    config   = function() require('config.mini-indentscope-setup') end}
   use {'norcalli/nvim-colorizer.lua',
     cmd    = 'ColorizerToggle',
     config = function() require('config.nvim-colorizer-setup') end}
