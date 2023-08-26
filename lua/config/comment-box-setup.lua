@@ -26,34 +26,27 @@ cb.setup({
   line_blank_line_below = true,  -- insert a blank line below the line
 })
 
+
+local opts = { noremap = true, silent = true }
 -- open catalog
-keymap('n', '<leader>bc',   cb.catalog,  {})
+keymap('n', '<leader>CC', cb.catalog, opts)
 
 -- comment box
-local boxn = 22
-for i=1,boxn do
-  keymap({'n', 'x'}, '<leader>bll' .. string.format('%02d', i), cb.llbox(i),  {})
-  keymap({'n', 'x'}, '<leader>blc' .. string.format('%02d', i), cb.lcbox(i),  {})
-  keymap({'n', 'x'}, '<leader>blr' .. string.format('%02d', i), cb.lrbox(i),  {})
-  keymap({'n', 'x'}, '<leader>bcl' .. string.format('%02d', i), cb.clbox(i),  {})
-  keymap({'n', 'x'}, '<leader>bcc' .. string.format('%02d', i), cb.ccbox(i),  {})
-  keymap({'n', 'x'}, '<leader>bcr' .. string.format('%02d', i), cb.crbox(i),  {})
-  keymap({'n', 'x'}, '<leader>brl' .. string.format('%02d', i), cb.rlbox(i),  {})
-  keymap({'n', 'x'}, '<leader>brc' .. string.format('%02d', i), cb.rcbox(i),  {})
-  keymap({'n', 'x'}, '<leader>brr' .. string.format('%02d', i), cb.rrbox(i),  {})
-  keymap({'n', 'x'}, '<leader>bal' .. string.format('%02d', i), cb.albox(i),  {})
-  keymap({'n', 'x'}, '<leader>bac' .. string.format('%02d', i), cb.acbox(i),  {})
-  keymap({'n', 'x'}, '<leader>bar' .. string.format('%02d', i), cb.arbox(i),  {})
-end
-
-
+keymap({'n', 'x'}, '<leader>CBB',  ':lua require("comment-box").albox(3)<cr>', opts) -- default
+keymap({'n', 'x'}, '<leader>Cll', ':lua require("comment-box").llbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Clc', ':lua require("comment-box").lcbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Clr', ':lua require("comment-box").lrbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Ccl', ':lua require("comment-box").clbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Ccc', ':lua require("comment-box").ccbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Ccr', ':lua require("comment-box").crbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Crl', ':lua require("comment-box").rlbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Crc', ':lua require("comment-box").rcbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Crr', ':lua require("comment-box").rrbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Cal', ':lua require("comment-box").albox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Cac', ':lua require("comment-box").acbox(3)',      opts)
+keymap({'n', 'x'}, '<leader>Car', ':lua require("comment-box").arbox(3)',      opts)
 -- comment line
-local linen = 10
-for i=1,linen do
-  keymap('n', '<leader>blil' .. string.format('%02d', i), cb.lline(i),  {})
-  keymap('n', '<leader>blic' .. string.format('%02d', i), cb.cline(i),  {})
-  keymap('n', '<leader>blir' .. string.format('%02d', i), cb.rline(i),  {})
-  keymap('i', '<C-l>l', cb.lline, {})
-  keymap('i', '<C-l>c', cb.cline, {})
-  keymap('i', '<C-l>r', cb.rline, {})
-end
+keymap({'n', 'x'}, '<leader>CLL',  ':lua require("comment-box").albox(3)<cr>', opts) -- default
+keymap({'n', 'x'}, '<leader>CLl', ':lua require("comment-box").lline(2)',      opts)
+keymap({'n', 'x'}, '<leader>CLc', ':lua require("comment-box").cline(2)',      opts)
+keymap({'n', 'x'}, '<leader>CLr', ':lua require("comment-box").rline(2)',      opts)
