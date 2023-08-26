@@ -97,9 +97,16 @@ function(use)
   use {'nvim-lualine/lualine.nvim',
     requires = {{'nvim-tree/nvim-web-devicons', opt = true}, 'SmiteshP/nvim-navic'},
     config   = function() require('config.lualine-setup') end}
-  use {'echasnovski/mini.indentscope',
-    branch = 'stable',
-    config   = function() require('config.mini-indentscope-setup') end}
+  use {'norcalli/nvim-colorizer.lua',
+    cmd    = 'ColorizerToggle',
+    config = function() require('config.nvim-colorizer-setup') end}
+  use {'folke/todo-comments.nvim',
+    requires = {'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
+    config   = function() require('config.todo-comments-setup') end}
+  use {'kwkarlwang/bufresize.nvim',
+    config = function() require('config.bufresize-setup') end }
+  use {'lukas-reineke/indent-blankline.nvim',
+    config = function() require('config.indent-blankline-setup') end }
 
   -- ---------------------------------------------
   -- enhancing editor
@@ -140,13 +147,29 @@ function(use)
   use {'SmiteshP/nvim-navic',
     requires = {'nvim-tree/nvim-web-devicons', 'neovim/nvim-lspconfig'},
     config   = function() require('config.nvim-navic-setup') end}
+  -- comments
+  use {'numToStr/Comment.nvim',
+    config = function() require('config.comment-setup') end}
+  use {'LudoPinelli/comment-box.nvim',
+    config = function() require('config.comment-box-setup') end}
+
+  -- ---------------------------------------------
+  -- enhanced move 
+  -- ---------------------------------------------
+  use {'phaazon/hop.nvim',
+    branch = 'v2',
+    config = function() require('config.hop-setup') end}
+  use {'mfussenegger/nvim-treehopper',
+    requires = {'nvim-treesitter/nvim-treesitter'},
+    config   = function() require('config.nvim-treehopper-setup') end}
 
   -- ---------------------------------------------
   -- terminal
   -- ---------------------------------------------
   use {"akinsho/toggleterm.nvim",
-    tag = '*',
-    config = function() require('config.toggleterm-setup') end}
+    tag      = '*',
+    requires = {'kwkarlwang/bufresize.nvim'},
+    config   = function() require('config.toggleterm-setup') end}
 
   -- ---------------------------------------------
   -- deno runtime plugin
@@ -211,6 +234,12 @@ function(use)
   use {'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function() require('config.nvim-treesitter-setup') end}
+  use {'David-Kunz/treesitter-unit',
+    requires = {'nvim-treesitter/nvim-treesitter'},
+    config   = function() require('config.treesitter-unit-setup') end}
+  use {'danymat/neogen',
+    requires = {'nvim-treesitter/nvim-treesitter'},
+    config   = function() require('config.neogen-setup') end}
 
   -- ---------------------------------------------
   -- completion tools
@@ -240,11 +269,34 @@ function(use)
     config = function() require('config.vimtex-setup') end}
 
   -- ---------------------------------------------
+  -- Rust
+  -- ---------------------------------------------
+  use {'simrat39/rust-tools.nvim',
+    requires = {
+      'neovim/nvim-lspconfig',
+      'nvim-lua/plenary.nvim',
+      'mfussenegger/nvim-dap',
+    },
+    config   = function() require('config.rust-tools-setup') end}
+  use {'saecki/crates.nvim',
+    tag      = 'v0.3.0',
+    requires = { 'nvim-lua/plenary.nvim' },
+    config   = function() require('config.crates-setup') end}
+
+  -- ---------------------------------------------
   -- Notebook
   -- ---------------------------------------------
   use {'kiyoon/jupynium.nvim',
     run = 'pip3 install --user .',
     config = function() require('config.jupynium-setup') end}
+
+  -- ---------------------------------------------
+  -- File type dependencies
+  -- ---------------------------------------------
+  -- csv
+  use {'Decodetalkers/csv-tools.lua',
+    config = function() require('config.csv-tools-setup') end}
+
 
   -- ---------------------------------------------
   -- Waka time
