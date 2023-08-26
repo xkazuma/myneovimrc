@@ -108,6 +108,8 @@ function(use)
     config   = function() require('config.todo-comments-setup') end}
   use {'kwkarlwang/bufresize.nvim',
     config = function() require('config.bufresize-setup') end }
+  use {'lukas-reineke/indent-blankline.nvim',
+    config = function() require('config.indent-blankline-setup') end }
 
   -- ---------------------------------------------
   -- enhancing editor
