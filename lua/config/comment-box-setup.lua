@@ -27,32 +27,33 @@ cb.setup({
 })
 
 -- open catalog
-keymap('n',        '<leader>cbc',   cb.catalog,  {})
+keymap('n', '<leader>bc',   cb.catalog,  {})
 
 -- comment box
 local boxn = 22
 for i=1,boxn do
-  keymap({'n', 'v'}, '<leader>cbll' .. string.format('%02d', i), cb.llbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cblc' .. string.format('%02d', i), cb.lcbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cblr' .. string.format('%02d', i), cb.lrbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbcl' .. string.format('%02d', i), cb.clbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbcc' .. string.format('%02d', i), cb.ccbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbcr' .. string.format('%02d', i), cb.crbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbrl' .. string.format('%02d', i), cb.rlbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbrc' .. string.format('%02d', i), cb.rcbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbrr' .. string.format('%02d', i), cb.rrbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbal' .. string.format('%02d', i), cb.albox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbac' .. string.format('%02d', i), cb.acbox(i),  {})
-  keymap({'n', 'v'}, '<leader>cbar' .. string.format('%02d', i), cb.arbox(i),  {})
+  keymap({'n', 'x'}, '<leader>bll' .. string.format('%02d', i), cb.llbox(i),  {})
+  keymap({'n', 'x'}, '<leader>blc' .. string.format('%02d', i), cb.lcbox(i),  {})
+  keymap({'n', 'x'}, '<leader>blr' .. string.format('%02d', i), cb.lrbox(i),  {})
+  keymap({'n', 'x'}, '<leader>bcl' .. string.format('%02d', i), cb.clbox(i),  {})
+  keymap({'n', 'x'}, '<leader>bcc' .. string.format('%02d', i), cb.ccbox(i),  {})
+  keymap({'n', 'x'}, '<leader>bcr' .. string.format('%02d', i), cb.crbox(i),  {})
+  keymap({'n', 'x'}, '<leader>brl' .. string.format('%02d', i), cb.rlbox(i),  {})
+  keymap({'n', 'x'}, '<leader>brc' .. string.format('%02d', i), cb.rcbox(i),  {})
+  keymap({'n', 'x'}, '<leader>brr' .. string.format('%02d', i), cb.rrbox(i),  {})
+  keymap({'n', 'x'}, '<leader>bal' .. string.format('%02d', i), cb.albox(i),  {})
+  keymap({'n', 'x'}, '<leader>bac' .. string.format('%02d', i), cb.acbox(i),  {})
+  keymap({'n', 'x'}, '<leader>bar' .. string.format('%02d', i), cb.arbox(i),  {})
 end
+
 
 -- comment line
 local linen = 10
 for i=1,linen do
-  keymap('n', '<leader>cbll' .. string.format('%02d', i), cb.lline(i),  {})
-  keymap('n', '<leader>cblc' .. string.format('%02d', i), cb.cline(i),  {})
-  keymap('n', '<leader>cblr' .. string.format('%02d', i), cb.rline(i),  {})
-  keymap('i', '<M-l>l', cb.lline, {})
-  keymap('i', '<M-l>c', cb.cline, {})
-  keymap('i', '<M-l>r', cb.rline, {})
+  keymap('n', '<leader>blil' .. string.format('%02d', i), cb.lline(i),  {})
+  keymap('n', '<leader>blic' .. string.format('%02d', i), cb.cline(i),  {})
+  keymap('n', '<leader>blir' .. string.format('%02d', i), cb.rline(i),  {})
+  keymap('i', '<C-l>l', cb.lline, {})
+  keymap('i', '<C-l>c', cb.cline, {})
+  keymap('i', '<C-l>r', cb.rline, {})
 end
