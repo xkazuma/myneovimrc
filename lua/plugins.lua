@@ -150,6 +150,8 @@ function(use)
   -- comments
   use {'numToStr/Comment.nvim',
     config = function() require('config.comment-setup') end}
+  use {'LudoPinelli/comment-box.nvim',
+    config = function() require('config.comment-box-setup') end}
 
   -- ---------------------------------------------
   -- enhanced move 
