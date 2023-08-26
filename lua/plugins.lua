@@ -107,7 +107,7 @@ function(use)
     requires = {'nvim-lua/plenary.nvim', 'nvim-tree/nvim-web-devicons' },
     config   = function() require('config.todo-comments-setup') end}
   use {'kwkarlwang/bufresize.nvim',
-    config = function() require('config.bufresize-setup').setup() end }
+    config = function() require('config.bufresize-setup') end }
 
   -- ---------------------------------------------
   -- enhancing editor
