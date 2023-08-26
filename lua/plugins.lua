@@ -163,8 +163,9 @@ function(use)
   -- terminal
   -- ---------------------------------------------
   use {"akinsho/toggleterm.nvim",
-    tag = '*',
-    config = function() require('config.toggleterm-setup') end}
+    tag      = '*',
+    requires = {'kwkarlwang/bufresize.nvim'},
+    config   = function() require('config.toggleterm-setup') end}
 
   -- ---------------------------------------------
   -- deno runtime plugin
