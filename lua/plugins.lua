@@ -147,6 +147,9 @@ function(use)
   use {'SmiteshP/nvim-navic',
     requires = {'nvim-tree/nvim-web-devicons', 'neovim/nvim-lspconfig'},
     config   = function() require('config.nvim-navic-setup') end}
+  -- comments
+  use {'numToStr/Comment.nvim',
+    config = function() require('config.comment-setup') end}
 
   -- ---------------------------------------------
   -- enhanced move 
