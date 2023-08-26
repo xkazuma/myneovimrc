@@ -237,6 +237,9 @@ function(use)
   use {'David-Kunz/treesitter-unit',
     requires = {'nvim-treesitter/nvim-treesitter'},
     config   = function() require('config.treesitter-unit-setup') end}
+  use {'danymat/neogen',
+    requires = {'nvim-treesitter/nvim-treesitter'},
+    config   = function() require('config.neogen-setup') end}
 
   -- ---------------------------------------------
   -- completion tools
