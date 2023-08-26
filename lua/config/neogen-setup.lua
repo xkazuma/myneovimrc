@@ -5,16 +5,16 @@ ng.setup({
   input_after_comment = true,
   snippet_engine      = 'luasnip',
   languages = {
-    ['sh.google_bash']           = ng.configurations.sh,
-    ['lua.emmylua']              = ng.configurations.lua,
-    ['java.javadoc']             = ng.configurations.java,
-    ['javascript.jsdoc']         = ng.configurations.javascript,
-    ['javascriptreact.jsdoc']    = ng.configurations.javascriptreact,
-    ['typescript.jsdoc']         = ng.configurations.typescript,
-    ['typescriptreact.jsdoc']    = ng.configurations.typescriptreact,
-    ['vue.jsdoc']                = ng.configurations.vue,
-    ['python.google_docstrings'] = ng.configurations.python,
-    ['rust.rustdoc']             = ng.configurations.rust,
+    ['sh.google_bash']           = require('neogen.configurations.sh'),
+    ['lua.emmylua']              = require('neogen.configurations.lua'),
+    ['java.javadoc']             = require('neogen.configurations.java'),
+    ['javascript.jsdoc']         = require('neogen.configurations.javascript'),
+    ['javascriptreact.jsdoc']    = require('neogen.configurations.javascriptreact'),
+    ['typescript.jsdoc']         = require('neogen.configurations.typescript'),
+    ['typescriptreact.jsdoc']    = require('neogen.configurations.typescriptreact'),
+    ['vue.jsdoc']                = require('neogen.configurations.vue'),
+    ['python.google_docstrings'] = require('neogen.configurations.python'),
+    ['rust.rustdoc']             = require('neogen.configurations.rust'),
   }
 })
 
