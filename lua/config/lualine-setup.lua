@@ -60,7 +60,7 @@ lualine.setup {
     lualine_a = { 'filename' },
     lualine_b = { 'branch' },
     lualine_c = {},
-    lualine_x = {},
+    lualine_x = { require('pomodoro').statusline },
     lualine_y = { 'filetype', 'progress' },
     lualine_z = {
       { 'location', left_padding = 2 },
@@ -70,7 +70,7 @@ lualine.setup {
     lualine_a = { 'filename' },
     lualine_b = {},
     lualine_c = {},
-    lualine_x = {},
+    lualine_x = { require('pomodoro').statusline },
     lualine_y = {},
     lualine_z = { 'location' },
   },
@@ -84,7 +84,7 @@ lualine.setup {
     lualine_c = { navic_status },
     lualine_x = {},
     lualine_y = {},
-    lualine_z = { require('pomodoro').statusline }
+    lualine_z = {}
   },
   inactive_winbar = {
     lualine_a = {
