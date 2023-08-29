@@ -53,15 +53,14 @@ lualine.setup {
         'Outline',
         'help',
         'quickfix',
+        'qf',
       }
     },
   },
   sections = {
-    lualine_a = {
-      { 'filename', pomodoro.statusline },
-    },
+    lualine_a = { 'filename' },
     lualine_b = { 'branch' },
-    lualine_c = { 'fileformat' },
+    lualine_c = { pomodoro.statusline },
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
     lualine_z = {
@@ -69,11 +68,9 @@ lualine.setup {
     },
   },
   inactive_sections = {
-    lualine_a = {
-      'filename', pomodoro.statusline
-    },
+    lualine_a = { 'filename' },
     lualine_b = {},
-    lualine_c = {},
+    lualine_c = { pomodoro.statusline },
     lualine_x = {},
     lualine_y = {},
     lualine_z = { 'location' },
