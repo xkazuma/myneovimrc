@@ -95,7 +95,11 @@ function(use)
   use {'nvim-tree/nvim-web-devicons',
     config   = function() require('config.nvim-web-devicons-setup') end}
   use {'nvim-lualine/lualine.nvim',
-    requires = {{'nvim-tree/nvim-web-devicons', opt = true}, 'SmiteshP/nvim-navic'},
+    requires = {
+      {'nvim-tree/nvim-web-devicons', opt = true},
+      'SmiteshP/nvim-navic',
+      'wthollingsworth/pomodoro.nvim',
+    },
     config   = function() require('config.lualine-setup') end}
   use {'norcalli/nvim-colorizer.lua',
     cmd    = 'ColorizerToggle',
@@ -299,9 +303,17 @@ function(use)
 
 
   -- ---------------------------------------------
-  -- Waka time
+  -- Work management
   -- ---------------------------------------------
+  -- working time
+  -- ------------
   use {'wakatime/vim-wakatime'}
+  use {'wthollingsworth/pomodoro.nvim',
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    config   = function() require('config.pomodoro-setup') end}
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

@@ -1,5 +1,15 @@
-local lualine = require('lualine')
-local navic   = require('nvim-navic')
+local lualine  = require('lualine')
+local navic    = require('nvim-navic')
+local pomodoro = require('pomodoro')
+
+local navic_status = {
+  function()
+    return navic.get_location()
+  end,
+  cond = function()
+    return navic.is_available()
+  end
+}
 
 local colors = {
   blue   = '#80a0ff',
@@ -48,7 +58,7 @@ lualine.setup {
   },
   sections = {
     lualine_a = {
-      { 'mode', right_padding = 2 },
+      { 'filename', pomodoro.statusline },
     },
     lualine_b = { 'branch' },
     lualine_c = { 'fileformat' },
@@ -59,45 +69,33 @@ lualine.setup {
     },
   },
   inactive_sections = {
-    lualine_a = { 'filename' },
+    lualine_a = {
+      'filename', pomodoro.statusline
+    },
     lualine_b = {},
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = { 'location' },
   },
-  tabline = {},
+  tabline    = {},
   extensions = {},
-  winbar = {
-    lualine_a = { 'filename' },
-    lualine_b = {},
-    lualine_c = {
-      {
-        function()
-          return navic.get_location()
-        end,
-        cond = function()
-          return navic.is_available()
-        end
-      },
+  winbar     = {
+    lualine_a = {
+      { 'mode', right_padding = 2 },
     },
+    lualine_b = {},
+    lualine_c = { navic_status },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
   },
   inactive_winbar = {
-    lualine_a = { 'filename' },
-    lualine_b = {},
-    lualine_c = {
-      {
-        function()
-          return navic.get_location()
-        end,
-        cond = function()
-          return navic.is_available()
-        end
-      },
+    lualine_a = {
+      { 'mode', right_padding = 2 },
     },
+    lualine_b = {},
+    lualine_c = { navic_status },
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}
