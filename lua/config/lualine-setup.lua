@@ -1,6 +1,5 @@
 local lualine  = require('lualine')
 local navic    = require('nvim-navic')
-local pomodoro = require('pomodoro')
 
 local navic_status = {
   function()
@@ -60,7 +59,7 @@ lualine.setup {
   sections = {
     lualine_a = { 'filename' },
     lualine_b = { 'branch' },
-    lualine_c = { pomodoro.statusline },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
     lualine_z = {
@@ -70,7 +69,7 @@ lualine.setup {
   inactive_sections = {
     lualine_a = { 'filename' },
     lualine_b = {},
-    lualine_c = { pomodoro.statusline },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = { 'location' },
@@ -85,7 +84,7 @@ lualine.setup {
     lualine_c = { navic_status },
     lualine_x = {},
     lualine_y = {},
-    lualine_z = {}
+    lualine_z = { require('pomodoro').statusline }
   },
   inactive_winbar = {
     lualine_a = {
