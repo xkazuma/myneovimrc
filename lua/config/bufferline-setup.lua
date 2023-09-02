@@ -75,12 +75,12 @@ local opts = { noremap = true, silent = true }
 keymap({'n',}, '<leader>bp',  '<cmd> BufferLineTogglePin<cr>',  opts) -- Toggle Pin
 keymap({'n',}, '<leader>bb',  '<cmd> BufferLinePick<cr>',       opts) -- Open a buffer
 keymap({'n',}, '<leader>b[',  '<cmd> BufferLineCyclePrev<cr>',  opts) -- Open the next (right) buffer
-keymap({'n',}, '<leader>b]',  '<cmd> BufferLineCloseNext<cr>',  opts) -- Open the previous (left) buffer
+keymap({'n',}, '<leader>b]',  '<cmd> BufferLineCycleNext<cr>',  opts) -- Open the previous (left) buffer
 keymap({'n',}, '<leader>bx',  '<cmd> BufferLinePickClose<cr>',  opts) -- Close a buffer
 keymap({'n',}, '<leader>bXr', '<cmd> BufferLineCloseRight<cr>', opts) -- Close buffers on the right
 keymap({'n',}, '<leader>bXl', '<cmd> BufferLineCloseLeft<cr>',  opts) -- Close buffers on the left
 keymap({'n',}, '<leader>bXo', '<cmd> BufferLineCloseOther<cr>', opts) -- Close other buffers
-keymap({'n',}, '<leader>bXg', ':BufferLineGroupClose ',         opts) -- Close buffers grouped in specified name
+keymap({'n',}, '<leader>bXg', ':BufferLineGroupClose ',         opts) -- Close buffers grouped in specified nam e
 keymap({'n',}, '<leader>bm[', '<cmd> BufferLineMovePrev<cr>',   opts) -- Move the current buffer to previous
 keymap({'n',}, '<leader>bm]', '<cmd> BufferLineMoveNext<cr>',   opts) -- Move the current buffer to next
 keymap({'n',}, '<leader>bg', ':BufferLineToggleGroup ',         opts) -- Toggle group
