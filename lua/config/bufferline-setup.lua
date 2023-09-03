@@ -38,7 +38,7 @@ bufferline.setup({
           priority  = 2, -- determines where it will appear relative to other groups (Optional)
           icon      = "", -- Optional
           matcher   = function(buf) -- Mandatory
-            return buf.filename:match('%_test') or buf.filename:match('%_spec')
+            return buf.name:match('%_test') or buf.name:match('%_spec')
           end,
         },
         {
@@ -46,7 +46,7 @@ bufferline.setup({
           highlight  = {undercurl = true, sp = "green"},
           auto_close = false,  -- whether or not close this group if it doesn't contain the current buffer
           matcher    = function(buf)
-            return buf.filename:match('%.md')
+            return buf.name:match('%.md')
           end,
         },
         {
@@ -54,7 +54,7 @@ bufferline.setup({
           highlight  = {undercurl = true, sp = "green"},
           auto_close = false,  -- whether or not close this group if it doesn't contain the current buffer
           matcher    = function(buf)
-            return buf.filename:match('%.tex')
+            return buf.name:match('%.tex')
           end,
         },
         {
@@ -62,7 +62,7 @@ bufferline.setup({
           highlight  = {undercurl = true, sp = "yellow"},
           auto_close = false,
           matcher    = function(buf)
-            return buf.filename:match('%.log') or buf.filename:match('%.txt')
+            return buf.name:match('%.log') or buf.name:match('%.txt')
           end,
         }
       }
