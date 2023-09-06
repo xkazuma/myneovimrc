@@ -23,9 +23,9 @@ elseif vim.loop.os_uname().sysname == 'Linux' then
   if os.getenv('WAYLAND_DISPLAY') ~= nil then
     clipboardname = 'linux-wayland-clipboard'
     plus_copy     = 'wl-copy'
-    plus_paste    = 'wl-paste'
+    plus_paste    = {'wl-paste', '-n'}
     star_copy     = 'wl-copy'
-    star_paste    = 'wl-paste'
+    star_paste    = {'wl-paste', '-n'}
     cache_enabled = 0
   elseif os.getenv('DISPLAY') ~= nil then
     clipboardname = 'linux-display-clipboard'
