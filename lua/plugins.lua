@@ -275,13 +275,12 @@ function(use)
   -- ---------------------------------------------
   -- Rust
   -- ---------------------------------------------
-  use {'simrat39/rust-tools.nvim',
+  use {'mrcjkb/rustaceanvim',
     requires = {
       'neovim/nvim-lspconfig',
-      'nvim-lua/plenary.nvim',
       'mfussenegger/nvim-dap',
     },
-    config   = function() require('config.rust-tools-setup') end}
+    config   = function() require('config.rustaceanvim-setup') end}
   use {'saecki/crates.nvim',
     tag      = 'v0.3.0',
     requires = { 'nvim-lua/plenary.nvim' },

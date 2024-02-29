@@ -44,9 +44,10 @@ endif
 install-pure-lua-for-docker: 
 	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/opt/packer.nvim
 	# config files
-	mkdir -p ~/.config/nvim
-	cp -rf ./init.lua ~/.config/nvim/ 
-	cp -rf ./lua      ~/.config/nvim/ 
+	mkdir -p ~/.config/nvim/after/ftplugin
+	cp ./after/rust.lua ~/.config/nvim/after/ftplugin/rust.lua
+	cp -rf ./init.lua   ~/.config/nvim/
+	cp -rf ./lua        ~/.config/nvim/
 	mkdir -p ~/.local/bin
 	echo export PATH=~/.local/bin:$$PATH >> ~/.bashrc
 	@make neovim
@@ -73,5 +74,6 @@ vimtex:
 
 update-conf: 
 	# config files
-	cp -rf ./init.lua ~/.config/nvim/ 
-	cp -rf ./lua      ~/.config/nvim/ 
+	cp ./after/rust.lua ~/.config/nvim/after/ftplugin/rust.lua
+	cp -rf ./init.lua   ~/.config/nvim/ 
+	cp -rf ./lua        ~/.config/nvim/ 

@@ -26,6 +26,9 @@ require('mason-tool-installer').setup {
     'java-debug-adapter',
     'google-java-format',
     'checkstyle',
+    -- rust
+    'codelldb',
+    'rust-analyzer',
   },
 
   -- if set to true this will check each tool for updates. If updates
