@@ -5,10 +5,10 @@ bufferline.setup({
   options = {
     mode                    = "buffers",
     style_preset            = bufferline.style_preset.no_italic,
-    separator_style         = 'slant',
-    always_show_bufferline  = false,
-    show_buffer_close_icons = false,
-    show_close_icon         = false,
+    separator_style         = 'thin',
+    always_show_bufferline  = true,
+    show_buffer_close_icons = true,
+    show_close_icon         = true,
     color_icons             = true,
     get_element_icon        = function(element)
       local icon, hl = webdevicon.get_icon_by_filetype(element.filetype, { default = false })

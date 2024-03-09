@@ -1,47 +1,22 @@
-local lualine  = require('lualine')
-local navic    = require('nvim-navic')
+local lualine     = require('lualine')
+local saganavic   = require('lspsaga.symbol.winbar')
+local podomoro    = require('pomodoro')
+local lazy_status = require('lazy.status')
 
 local navic_status = {
   function()
-    return navic.get_location()
+    return saganavic.get_bar()
   end,
   cond = function()
-    return navic.is_available()
+    return saganavic.get_bar() ~= nil
   end
-}
-
-local colors = {
-  blue   = '#80a0ff',
-  cyan   = '#79dac8',
-  black  = '#080808',
-  white  = '#c6c6c6',
-  red    = '#ff5189',
-  violet = '#d183e8',
-  grey   = '#303030',
-}
-
-local bubbles_theme = {
-  normal = {
-    a = { fg = colors.black, bg = colors.violet },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.black },
-  },
-
-  insert  = { a = { fg = colors.black, bg = colors.blue } },
-  visual  = { a = { fg = colors.black, bg = colors.cyan } },
-  replace = { a = { fg = colors.black, bg = colors.red } },
-
-  inactive = {
-    a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.black, bg = colors.black },
-  },
 }
 
 lualine.setup {
   options = {
     globalstatus         = true,
-    theme                = bubbles_theme,
+    --theme                = bubbles_theme,
+    theme                = 'tokyonight',
     section_separators   = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     disabled_filetypes   = {
@@ -53,16 +28,28 @@ lualine.setup {
         'help',
         'quickfix',
         'qf',
+        -- dap
+        'dapui_console', 'dap-repl',
+        'dapui_stacks',  'dapui_scopes',
+        'dapui_watches', 'dapui_breakpoints',
+        -- lspsaga
+        'sagaoutline',
       }
     },
   },
   sections = {
     lualine_a = { 'filename' },
     lualine_b = { 'branch' },
-    lualine_c = {},
+    lualine_c = {
+      {
+        lazy_status.updates,
+        cond  = lazy_status.has_updates,
+        color = { fg = "#ff9e64" },
+      }
+    },
     lualine_x = {},
     lualine_y = { 'filetype', 'progress' },
-    lualine_z = { require('pomodoro').statusline },
+    lualine_z = { podomoro.statusline },
   },
   inactive_sections = {
     lualine_a = { 'filename' },
@@ -70,7 +57,7 @@ lualine.setup {
     lualine_c = {},
     lualine_x = {},
     lualine_y = {},
-    lualine_z = { require('pomodoro').statusline },
+    lualine_z = { podomoro.statusline },
   },
   tabline    = {},
   extensions = {},
@@ -78,8 +65,8 @@ lualine.setup {
     lualine_a = {
       { 'mode', right_padding = 2 },
     },
-    lualine_b = {},
-    lualine_c = { navic_status },
+    lualine_b = { navic_status },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {}

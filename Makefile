@@ -56,7 +56,7 @@ install-pure-lua-for-docker:
 neovim:
 	@echo "######### First ##############################################"
 	@echo "Load plugins to execute below commands:"
-	@echo "nvim +:q && nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'"
+	@echo "nvim +:q && nvim --headless '+Lazy! sync' +qa"
 
 magma-nvim:
 	@echo "######### How to instal magma ##############################################"
@@ -74,6 +74,7 @@ vimtex:
 
 update-conf: 
 	# config files
+	mkdir -p ~/.config/nvim/after/ftplugin
 	cp ./after/rust.lua ~/.config/nvim/after/ftplugin/rust.lua
 	cp -rf ./init.lua   ~/.config/nvim/ 
 	cp -rf ./lua        ~/.config/nvim/ 

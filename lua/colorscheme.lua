@@ -1,10 +1,8 @@
 vim.cmd [[
   try
-    colorscheme melange
+    colorscheme tokyonight-night
   catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme default
     set background=dark
   endtry
 ]]
-
--- colorscheme jellybeans

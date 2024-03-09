@@ -10,10 +10,9 @@ require("autocmds")
 require("options")
 
 require("keymaps")
-
-require("colorscheme")
-
 --------------------------------------------------------------------------------
 -- plugin setting
 --------------------------------------------------------------------------------
-require("plugins")
+require("lazy-init")
+
+require("colorscheme")

@@ -20,5 +20,3 @@ ng.setup({
 
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<leader>ng', '<cmd>lua require("neogen").generate()<CR>', opts)
-vim.api.nvim_set_keymap('i', '<C-l>',      '<cmd>lua require("neogen").jump_next<CR>',  opts)
-vim.api.nvim_set_keymap('i', '<C-h>',      '<cmd>lua require("neogen").jump_prev<CR>',  opts)

@@ -1,7 +1,9 @@
+local vim = vim
+
 local crates  = require('crates')
 local cmp     = require('cmp')
 
-require('crates').setup {
+crates.setup {
     smart_insert                       = true,
     insert_closing_quote               = true,
     avoid_prerelease                   = true,
@@ -39,7 +41,7 @@ require('crates').setup {
         hide_on_select          = false,
         copy_register           = '"',
         style                   = "minimal",
-        border                  = "none",
+        border                  = 'single',
         show_version_date       = false,
         show_dependency_version = true,
         max_height              = 30,
@@ -141,8 +143,8 @@ require('crates').setup {
         },
     },
     null_ls = {
-        enabled = false,
-        name    = "Crates",
+        enabled = true,
+        name    = "crates.nvim",
     },
     on_attach = function(bufnr) end,
 }
@@ -154,3 +156,42 @@ vim.api.nvim_create_autocmd('BufRead', {
         cmp.setup.buffer({ sources = { { name = 'crates' } } })
     end,
 })
+
+local opts = { silent = true }
+
+vim.keymap.set("n", "<leader>ct", crates.toggle, opts)
+vim.keymap.set("n", "<leader>cr", crates.reload, opts)
+
+vim.keymap.set("n", "<leader>cv", crates.show_versions_popup, opts)
+vim.keymap.set("n", "<leader>cf", crates.show_features_popup, opts)
+vim.keymap.set("n", "<leader>cd", crates.show_dependencies_popup, opts)
+
+vim.keymap.set("n", "<leader>cu", crates.update_crate, opts)
+vim.keymap.set("v", "<leader>cu", crates.update_crates, opts)
+vim.keymap.set("n", "<leader>ca", crates.update_all_crates, opts)
+vim.keymap.set("n", "<leader>cU", crates.upgrade_crate, opts)
+vim.keymap.set("v", "<leader>cU", crates.upgrade_crates, opts)
+vim.keymap.set("n", "<leader>cA", crates.upgrade_all_crates, opts)
+
+vim.keymap.set("n", "<leader>cx", crates.expand_plain_crate_to_inline_table, opts)
+vim.keymap.set("n", "<leader>cX", crates.extract_crate_into_table, opts)
+
+vim.keymap.set("n", "<leader>cH", crates.open_homepage, opts)
+vim.keymap.set("n", "<leader>cR", crates.open_repository, opts)
+vim.keymap.set("n", "<leader>cD", crates.open_documentation, opts)
+vim.keymap.set("n", "<leader>cC", crates.open_crates_io, opts)
+
+local function show_documentation()
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({ 'vim','help' }, filetype) then
+        vim.cmd('h '..vim.fn.expand('<cword>'))
+    elseif vim.tbl_contains({ 'man' }, filetype) then
+        vim.cmd('Man '..vim.fn.expand('<cword>'))
+    elseif vim.fn.expand('%:t') == 'Cargo.toml' and crates.popup_available() then
+        crates.show_popup()
+    else
+        vim.lsp.buf.hover()
+    end
+end
+
+vim.keymap.set('n', '<tab>', show_documentation, { silent = true })

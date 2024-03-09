@@ -1,3 +1,5 @@
+local vim = vim
+
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 
@@ -17,8 +19,8 @@ vim.g.mapleader       = ' '
 --   command_mode = 'c',
 
 -- Normal -- 
-keymap("n", "<C-f>",     ":F<cr>",          opts)
-keymap("n", "<C-o>",     ":O<cr>",          opts)
+keymap("n", "<C-F>",     "<cmd>F<cr>",          opts)
+keymap("n", "<leader>o", "<cmd>O<cr>",          opts)
 keymap("n", "<C-P>",     "\"+p",                opts)
 keymap("n", "<C-Space>", "<cmd>Telescope<cr>",  opts)
 

@@ -1,3 +1,5 @@
+local vim = vim
+
 local hop        = require('hop')
 local directions = require('hop.hint').HintDirection
 
@@ -8,16 +10,17 @@ hop.setup({
 -- ------------------------------
 -- mapping hop 
 -- ------------------------------
+vim.keymap.set({'n', 'x', 'o'}, '<leader>H',    ':Hop',                            { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hbc1', '<cmd>HopChar1BC<cr>',             { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hac1', '<cmd>HopChar1AC<cr>',             { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hmc1', '<cmd>HopChar1MW<cr>',             { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hcc1', '<cmd>HopChar1CurrentLine<cr>',    { noremap = true, silent = true })
-vim.keymap.set({'n', 'x', 'o'}, '<leader>hwc1', '<cmd>HopChar1<cr>',               { noremap = true, silent = true })
+vim.keymap.set({'n', 'x', 'o'}, '<leader>hc1', '<cmd>HopChar1<cr>',               { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hbc2', '<cmd>HopChar2BC<cr>',             { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hac2', '<cmd>HopChar2AC<cr>',             { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hmc2', '<cmd>HopChar2MW<cr>',             { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hcc2', '<cmd>HopChar2CurrentLine<cr>',    { noremap = true, silent = true })
-vim.keymap.set({'n', 'x', 'o'}, '<leader>hwc2', '<cmd>HopChar2<cr>',               { noremap = true, silent = true })
+vim.keymap.set({'n', 'x', 'o'}, '<leader>hc2', '<cmd>HopChar2<cr>',               { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hbll', '<cmd>HopLineBC<cr>',              { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hall', '<cmd>HopLineAC<cr>',              { noremap = true, silent = true })
 vim.keymap.set({'n', 'x', 'o'}, '<leader>hmll', '<cmd>HopLineMW<cr>',              { noremap = true, silent = true })
