@@ -99,6 +99,7 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
       'folke/noice.nvim',
+      'folke/trouble.nvim',
     },
     config =
       function()
@@ -319,6 +320,7 @@ return {
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'neovim/nvim-lspconfig',
+      "folke/trouble.nvim",
       'nvimtools/none-ls.nvim',
       'tamago324/nlsp-settings.nvim',
     },
@@ -351,6 +353,16 @@ return {
     config =
       function()
         require('config.neodev-setup')
+      end,
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config =
+      function()
+        require('config.trouble-setup')
       end,
   },
   -- Debug Adapter Protocol (DAP)
@@ -436,6 +448,20 @@ return {
   -- ---------------------------------------------
   -- Notebook
   -- ---------------------------------------------
+  {
+    'dccsillag/magma-nvim',
+    cmd = 'UpdateRemotePlugins',
+    ft = {
+      'python'
+    },
+    dependencies = {
+      'nvimdev/lspsaga.nvim',
+    },
+    config =
+      function ()
+        require('config.magma-nvim-setup')
+      end,
+  },
   -- ---------------------------------------------
   -- File type dependencies
   -- ---------------------------------------------

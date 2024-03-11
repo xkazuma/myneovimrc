@@ -50,10 +50,10 @@ local set_keybinds = function(ev)
   local opts = { buffer = ev.buf }
   local n    = { 'n' }
   local nv   = { 'n', 'v' }
-  vim.keymap.set(n, '<leader>Lo',  vim.diagnostic.open_float, opts)
-  vim.keymap.set(n, '<leader>Ld[', vim.diagnostic.goto_prev,  opts)
-  vim.keymap.set(n, '<leader>Ld]', vim.diagnostic.goto_next,  opts)
-  vim.keymap.set(n, '<leader>Ldset',   vim.diagnostic.setloclist, opts)
+  vim.keymap.set(n, '<leader>Lo',    vim.diagnostic.open_float, opts)
+  vim.keymap.set(n, '<leader>Ld[',   vim.diagnostic.goto_prev,  opts)
+  vim.keymap.set(n, '<leader>Ld]',   vim.diagnostic.goto_next,  opts)
+  vim.keymap.set(n, '<leader>Ldset', vim.diagnostic.setloclist, opts)
   -- search in codes and functions
   vim.keymap.set(n, '<leader>Ldec', vim.lsp.buf.declaration, opts)
   vim.keymap.set(n, '<leader>Ldef', vim.lsp.buf.definition,  opts)
@@ -72,6 +72,16 @@ local set_keybinds = function(ev)
   vim.keymap.set(n,  '<leader>Lwls', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
   vim.keymap.set(n,  '<leader>Lwrm', vim.lsp.buf.remove_workspace_folder, opts)
 end
+
+-- ----------------------------
+-- Diagnostic signs
+-- ----------------------------
+vim.cmd [[ 
+  sign define DiagnosticSignError text=  linehl= texthl=DiagnosticSignError numhl=
+  sign define DiagnosticSignWarn  text=  linehl= texthl=DiagnosticSignWarn  numhl=
+  sign define DiagnosticSignInfo  text=  linehl= texthl=DiagnosticSignInfo  numhl=
+  sign define DiagnosticSignHint  text=  linehl= texthl=DiagnosticSignHint  numhl=
+]]
 
 -- ----------------------------
 -- neodev setup
