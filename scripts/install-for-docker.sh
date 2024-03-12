@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ln -s lazyvim ~/.config/nvim
+cp -rf lazyvim ~/.config/nvim

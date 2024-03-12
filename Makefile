@@ -6,9 +6,13 @@ check:
 install: backup
 	echo no-implemented
 
-install-pure-lua-for-docker: backup
+install-pure-lua-for-docker: reset-nvim
 	sh scripts/install-for-docker.sh
 
-baktime      := $(shell date --date='TZ="Japan/Kyoto" now' +%Y%m%d%I%M)
+reset-nvim: backup
+	sh scripts/reset.sh
+
+update-conf-for-docker: backup install-pure-lua-for-docker
+
 backup:
 	sh scripts/backup.sh
