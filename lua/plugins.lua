@@ -479,9 +479,6 @@ return {
   -- working time
   -- ------------
   {
-    'wakatime/vim-wakatime'
-  },
-  {
     'wthollingsworth/pomodoro.nvim',
     dependencies = {
       'MunifTanjim/nui.nvim',
