@@ -1,3 +1,50 @@
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
+local options = {
+  backup = false,
+  backupskip = { "/tmp/*", "/private/tmp/*" },
+  clipboard = "unnamedplus",
+  completeopt = { "menuone", "noselect" },
+  conceallevel = 0,
+  cursorline = true,
+  encoding = "utf-8",
+  expandtab = true,
+  fileencoding = "utf-8",
+  guifont = "PremolJP Console NF:h11",
+  hlsearch = true,
+  ignorecase = true,
+  mouse = "",
+  number = true,
+  numberwidth = 4,
+  pumblend = 5,
+  pumheight = 10,
+  relativenumber = true,
+  scrolloff = 8,
+  shell = "bash",
+  shiftwidth = 2,
+  showmode = false,
+  showtabline = 2,
+  sidescrolloff = 8,
+  signcolumn = "yes",
+  smartcase = true,
+  smartindent = true,
+  splitbelow = true,
+  splitright = true,
+  swapfile = false,
+  tabstop = 2,
+  termguicolors = true,
+  timeoutlen = 6000,
+  title = true,
+  undofile = true,
+  updatetime = 400,
+  wildoptions = "pum",
+  winblend = 0,
+  wrap = true,
+  writebackup = false,
+  list = true,
+}
+
+for k, v in pairs(options) do
+  vim.opt[k] = v
+end

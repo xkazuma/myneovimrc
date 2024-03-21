@@ -12,7 +12,7 @@ install-pure-lua-for-docker: reset-nvim
 reset-nvim: backup
 	sh scripts/reset.sh
 
-update-conf-for-docker: backup install-pure-lua-for-docker
+update-conf-for-docker: install-pure-lua-for-docker
 
 backup:
 	sh scripts/backup.sh
